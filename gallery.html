@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gallery — Carnar Epoxy</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --gold: #c9a84c;
+      --gold-light: #e8c96a;
+      --black: #0a0a0a;
+      --dark: #111;
+      --card-bg: #1a1a1a;
+    }
+
+    body {
+      background: var(--black);
+      color: #fff;
+      font-family: 'Segoe UI', sans-serif;
+      min-height: 100vh;
+    }
+
+    /* ── Header ── */
+    .gallery-header {
+      background: var(--dark);
+      border-bottom: 2px solid var(--gold);
+      padding: 1.5rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .gallery-header a {
+      color: var(--gold);
+      text-decoration: none;
+      font-size: 0.85rem;
+      letter-spacing: 0.05em;
+      opacity: 0.8;
+      transition: opacity 0.2s;
+    }
+    .gallery-header a:hover { opacity: 1; }
+
+    .gallery-header h1 {
+      font-size: clamp(1.1rem, 3vw, 1.6rem);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #fff;
+    }
+    .gallery-header h1 span { color: var(--gold); }
+
+    /* ── Sections ── */
+    .section {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem;
+    }
+
+    .section-label {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+    .section-label::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(to right, var(--gold), transparent);
+    }
+
+    .section-badge {
+      background: var(--gold);
+      color: var(--black);
+      font-size: 0.65rem;
+      font-weight: 800;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      padding: 0.3rem 0.8rem;
+      border-radius: 3px;
+    }
+
+    .section-title {
+      font-size: clamp(1.4rem, 4vw, 2rem);
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .section-sub {
+      margin-top: 0.4rem;
+      color: rgba(255,255,255,0.5);
+      font-size: 0.9rem;
+    }
+
+    /* ── Comparison Sliders ── */
+    .comparisons-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1.8rem;
+    }
+
+    .comp-card {
+      border-radius: 10px;
+      overflow: hidden;
+      border: 1px solid rgba(201,168,76,0.25);
+      background: var(--card-bg);
+    }
+
+    .comp-card-label {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.6rem 1rem;
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+    .lbl-before { color: #aaa; font-weight: 700; }
+    .lbl-after  { color: var(--gold); font-weight: 700; }
+
+    /* Slider */
+    .slider-wrap {
+      position: relative;
+      aspect-ratio: 4/3;
+      overflow: hidden;
+      cursor: ew-resize;
+      user-select: none;
+      -webkit-user-select: none;
+    }
+
+    .img-before {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .after-clip {
+      position: absolute;
+      inset: 0;
+      width: 50%;
+      overflow: hidden;
+    }
+
+    .img-after {
+      position: absolute;
+      top: 0; left: 0;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .slider-line {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 3px;
+      height: 100%;
+      background: var(--gold);
+      pointer-events: none;
+      z-index: 2;
+    }
+
+    .slider-handle-btn {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: var(--gold);
+      border: 3px solid #fff;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 3;
+      pointer-events: none;
+      color: var(--black);
+      font-weight: 900;
+      font-size: 0.85rem;
+      letter-spacing: -1px;
+    }
+
+    .drag-hint {
+      text-align: center;
+      padding: 0.5rem;
+      font-size: 0.7rem;
+      color: rgba(255,255,255,0.35);
+      letter-spacing: 0.06em;
+    }
+
+    /* ── Singles Grid ── */
+    .singles-divider {
+      border: none;
+      border-top: 1px solid rgba(201,168,76,0.15);
+    }
+
+    .singles-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 1rem;
+      margin-top: 1.8rem;
+    }
+
+    .single-card {
+      aspect-ratio: 4/3;
+      border-radius: 10px;
+      overflow: hidden;
+      cursor: zoom-in;
+      border: 1px solid rgba(201,168,76,0.15);
+      transition: border-color 0.25s, transform 0.25s;
+    }
+    .single-card:hover {
+      border-color: var(--gold);
+      transform: scale(1.02);
+    }
+    .single-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s;
+    }
+    .single-card:hover img { transform: scale(1.06); }
+
+    /* ── Lightbox ── */
+    #lb {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.92);
+      z-index: 1000;
+      align-items: center;
+      justify-content: center;
+    }
+    #lb.open { display: flex; }
+
+    #lb img {
+      max-width: 92vw;
+      max-height: 88vh;
+      object-fit: contain;
+      border-radius: 6px;
+      display: block;
+    }
+
+    .lb-close {
+      position: fixed;
+      top: 1rem; right: 1.2rem;
+      background: none; border: none;
+      color: #fff; font-size: 2rem;
+      cursor: pointer; line-height: 1;
+      opacity: 0.7;
+    }
+    .lb-close:hover { opacity: 1; }
+
+    /* ── Footer ── */
+    .gallery-footer {
+      border-top: 1px solid rgba(201,168,76,0.2);
+      text-align: center;
+      padding: 2rem 1rem;
+      color: rgba(255,255,255,0.4);
+      font-size: 0.8rem;
+      letter-spacing: 0.06em;
+    }
+    .gallery-footer a {
+      color: var(--gold);
+      text-decoration: none;
+    }
+
+    /* ── Mobile ── */
+    @media (max-width: 600px) {
+      .comparisons-grid { grid-template-columns: 1fr; }
+      .singles-grid { grid-template-columns: repeat(2, 1fr); gap: 0.6rem; }
+      .gallery-header { padding: 1rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Header -->
+<header class="gallery-header">
+  <a href="index.html">&#8592; Back to Site</a>
+  <h1>Carnar <span>Epoxy</span> Gallery</h1>
+  <span style="width:80px;"></span>
+</header>
+
+<!-- ── Comparison Sliders ── -->
+<section class="section">
+  <div class="section-label">
+    <span class="section-badge">Transformations</span>
+  </div>
+  <h2 class="section-title">Before &amp; After</h2>
+  <p class="section-sub">Drag the handle to reveal the transformation</p>
+
+  <div class="comparisons-grid">
+
+    <!-- Comp 1 -->
+    <div class="comp-card">
+      <div class="comp-card-label">
+        <span class="lbl-before">&#9632; Before</span>
+        <span class="lbl-after">After &#9632;</span>
+      </div>
+      <div class="slider-wrap">
+        <img class="img-before" src="comp1-before.jpeg" alt="Before" draggable="false" />
+        <div class="after-clip">
+          <img class="img-after" src="comp1-after.jpeg" alt="After" draggable="false" />
+        </div>
+        <div class="slider-line"></div>
+        <div class="slider-handle-btn">&#10094;&#10095;</div>
+      </div>
+      <div class="drag-hint">&#8592; drag to compare &#8594;</div>
+    </div>
+
+    <!-- Comp 2 -->
+    <div class="comp-card">
+      <div class="comp-card-label">
+        <span class="lbl-before">&#9632; Before</span>
+        <span class="lbl-after">After &#9632;</span>
+      </div>
+      <div class="slider-wrap">
+        <img class="img-before" src="comp2-before.jpeg" alt="Before" draggable="false" />
+        <div class="after-clip">
+          <img class="img-after" src="comp2-after.jpeg" alt="After" draggable="false" />
+        </div>
+        <div class="slider-line"></div>
+        <div class="slider-handle-btn">&#10094;&#10095;</div>
+      </div>
+      <div class="drag-hint">&#8592; drag to compare &#8594;</div>
+    </div>
+
+    <!-- Comp 3 -->
+    <div class="comp-card">
+      <div class="comp-card-label">
+        <span class="lbl-before">&#9632; Before</span>
+        <span class="lbl-after">After &#9632;</span>
+      </div>
+      <div class="slider-wrap">
+        <img class="img-before" src="comp3-before.jpeg" alt="Before" draggable="false" />
+        <div class="after-clip">
+          <img class="img-after" src="comp3-after.jpeg" alt="After" draggable="false" />
+        </div>
+        <div class="slider-line"></div>
+        <div class="slider-handle-btn">&#10094;&#10095;</div>
+      </div>
+      <div class="drag-hint">&#8592; drag to compare &#8594;</div>
+    </div>
+
+  </div>
+</section>
+
+<hr class="singles-divider" />
+
+<!-- ── Single Photos ── -->
+<section class="section">
+  <div class="section-label">
+    <span class="section-badge">Showcase</span>
+  </div>
+  <h2 class="section-title">Finished Work</h2>
+  <p class="section-sub">A closer look at our completed floors</p>
+
+  <div class="singles-grid">
+    <div class="single-card" onclick="openLb('single%201.jpeg')">
+      <img src="single%201.jpeg" alt="Finished floor" loading="lazy" />
+    </div>
+    <div class="single-card" onclick="openLb('single%202.jpeg')">
+      <img src="single%202.jpeg" alt="Finished floor" loading="lazy" />
+    </div>
+    <div class="single-card" onclick="openLb('single%203.jpeg')">
+      <img src="single%203.jpeg" alt="Finished floor" loading="lazy" />
+    </div>
+  </div>
+</section>
+
+<!-- Lightbox -->
+<div id="lb">
+  <button class="lb-close" onclick="closeLb()">&#10005;</button>
+  <img id="lbImg" src="" alt="Gallery photo" />
+</div>
+
+<!-- Footer -->
+<footer class="gallery-footer">
+  <p>Carnar Epoxy &mdash; Houston, TX</p>
+  <p style="margin-top:0.5rem;">
+    <a href="tel:8322106313">Carlos: (832) 210-6313</a>
+    &nbsp;&nbsp;|&nbsp;&nbsp;
+    <a href="tel:8325167961">Narciso: (832) 516-7961</a>
+  </p>
+</footer>
+
+<script>
+  // ── Before/After Sliders ──
+  document.querySelectorAll('.slider-wrap').forEach(wrap => {
+    const clip    = wrap.querySelector('.after-clip');
+    const line    = wrap.querySelector('.slider-line');
+    const handle  = wrap.querySelector('.slider-handle-btn');
+    const afterImg = clip.querySelector('.img-after');
+
+    function setPos(pct) {
+      pct = Math.max(2, Math.min(98, pct));
+      const frac = pct / 100;
+      clip.style.width = pct + '%';
+      afterImg.style.width = (100 / frac) + '%';
+      line.style.left = pct + '%';
+      handle.style.left = pct + '%';
+    }
+
+    let dragging = false;
+
+    function onStart(e) {
+      dragging = true;
+      e.preventDefault();
+    }
+    function onMove(e) {
+      if (!dragging) return;
+      const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+      const rect = wrap.getBoundingClientRect();
+      setPos(((clientX - rect.left) / rect.width) * 100);
+    }
+    function onEnd() { dragging = false; }
+
+    wrap.addEventListener('mousedown', onStart);
+    wrap.addEventListener('touchstart', e => { dragging = true; }, { passive: true });
+    window.addEventListener('mousemove', onMove);
+    window.addEventListener('touchmove', e => {
+      if (!dragging) return;
+      const rect = wrap.getBoundingClientRect();
+      setPos(((e.touches[0].clientX - rect.left) / rect.width) * 100);
+    }, { passive: true });
+    window.addEventListener('mouseup', onEnd);
+    window.addEventListener('touchend', onEnd);
+
+    setPos(50);
+  });
+
+  // ── Lightbox ──
+  function openLb(src) {
+    document.getElementById('lbImg').src = src;
+    document.getElementById('lb').classList.add('open');
+  }
+  function closeLb() {
+    document.getElementById('lb').classList.remove('open');
+    document.getElementById('lbImg').src = '';
+  }
+  document.getElementById('lb').addEventListener('click', e => {
+    if (e.target === e.currentTarget) closeLb();
+  });
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') closeLb();
+  });
+</script>
+
+</body>
+</html>

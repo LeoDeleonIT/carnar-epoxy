@@ -1,0 +1,2746 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Carnar Epoxy | Flawless Floors, Built to Last</title>
+  <meta name="description" content="Carnar Epoxy — Premium epoxy flooring for garages, commercial spaces, and custom designs in the Houston area. Call 832-292-8797 for a free estimate." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ===================== VARIABLES ===================== */
+    :root {
+      --black:      #080808;
+      --dark:       #111111;
+      --card:       #181818;
+      --card2:      #1e1e1e;
+      --border:     rgba(201,168,76,0.18);
+      --gold:       #c9a84c;
+      --gold-dark:  #9a7a2e;
+      --gold-light: #e8c97a;
+      --gold-glow:  rgba(201,168,76,0.25);
+      --white:      #ffffff;
+      --off-white:  #e8e8e8;
+      --gray:       #888888;
+      --light-gray: #cccccc;
+      --red:        #e03030;
+      --transition: 0.35s cubic-bezier(0.4,0,0.2,1);
+    }
+
+    /* ===================== RESET ===================== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body {
+      background: var(--black);
+      color: var(--off-white);
+      font-family: 'Inter', sans-serif;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    img { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
+    ul { list-style: none; }
+    button { cursor: pointer; border: none; background: none; font-family: inherit; }
+
+    /* ===================== TYPOGRAPHY ===================== */
+    .serif { font-family: 'Playfair Display', serif; }
+    .section-label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.75rem;
+    }
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 700;
+      line-height: 1.15;
+      color: var(--white);
+      margin-bottom: 1.25rem;
+    }
+    .section-sub {
+      font-size: 1.05rem;
+      color: var(--light-gray);
+      max-width: 560px;
+      line-height: 1.75;
+    }
+
+    /* ===================== UTILITIES ===================== */
+    .container {
+      width: 100%;
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+    .gold-line {
+      width: 60px;
+      height: 3px;
+      background: linear-gradient(90deg, var(--gold), var(--gold-light));
+      border-radius: 2px;
+      margin-bottom: 1.5rem;
+    }
+    .gold-line.center { margin-left: auto; margin-right: auto; }
+
+    /* ===================== BUTTONS ===================== */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.9rem 2.2rem;
+      border-radius: 4px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      letter-spacing: 0.05em;
+      transition: var(--transition);
+      cursor: pointer;
+    }
+    .btn-gold {
+      background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 50%, var(--gold) 100%);
+      background-size: 200% auto;
+      color: var(--black);
+    }
+    .btn-gold:hover {
+      background-position: right center;
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px rgba(201,168,76,0.4);
+    }
+    .btn-outline {
+      border: 2px solid var(--gold);
+      color: var(--gold);
+      background: transparent;
+    }
+    .btn-outline:hover {
+      background: var(--gold);
+      color: var(--black);
+      transform: translateY(-2px);
+    }
+
+    /* ===================== NAVBAR ===================== */
+    #navbar {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      padding: 1.2rem 0;
+      transition: var(--transition);
+      background: rgba(8,8,8,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+    #navbar.scrolled {
+      background: rgba(8,8,8,0.97);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 2px 30px rgba(0,0,0,0.6);
+      padding: 0.8rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      text-decoration: none;
+    }
+    .nav-logo img {
+      height: 56px;
+      width: auto;
+      display: block;
+      filter: drop-shadow(0 0 8px rgba(201,168,76,0.35));
+      transition: filter 0.3s ease, transform 0.3s ease;
+    }
+    .nav-logo img:hover {
+      filter: drop-shadow(0 0 14px rgba(201,168,76,0.6));
+      transform: scale(1.04);
+    }
+    .nav-logo-text {
+      display: flex;
+      flex-direction: column;
+      line-height: 1;
+    }
+    .nav-logo-text span:first-child {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+      font-weight: 800;
+      color: var(--white);
+      letter-spacing: 0.05em;
+    }
+    .nav-logo-text span:last-child {
+      font-size: 0.6rem;
+      font-weight: 600;
+      letter-spacing: 0.25em;
+      color: var(--gold);
+      text-transform: uppercase;
+      margin-top: 2px;
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 2.5rem;
+    }
+    .nav-links a {
+      font-size: 0.875rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      color: var(--light-gray);
+      text-transform: uppercase;
+      transition: color var(--transition);
+      position: relative;
+    }
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px; left: 0;
+      width: 0; height: 1.5px;
+      background: var(--gold);
+      transition: width var(--transition);
+    }
+    .nav-links a:hover { color: var(--gold); }
+    .nav-links a:hover::after { width: 100%; }
+    .nav-cta { margin-left: 1rem; }
+    .lang-toggle {
+      background: transparent;
+      border: 1.5px solid var(--gold);
+      color: var(--gold);
+      padding: 0.35rem 0.75rem;
+      border-radius: 6px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+    }
+    .lang-toggle:hover {
+      background: var(--gold);
+      color: var(--black);
+    }
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      padding: 4px;
+      cursor: pointer;
+    }
+    .hamburger span {
+      display: block;
+      width: 26px; height: 2px;
+      background: var(--gold);
+      border-radius: 2px;
+      transition: var(--transition);
+    }
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(8,8,8,0.98);
+      z-index: 999;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 2.5rem;
+    }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      color: var(--white);
+      transition: color var(--transition);
+    }
+    .mobile-menu a:hover { color: var(--gold); }
+    .mobile-menu .btn { font-size: 1rem; padding: 1rem 2.5rem; }
+
+    /* ===================== HERO ===================== */
+    #hero {
+      min-height: 100vh;
+      position: relative;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 80% 60% at 60% 50%, rgba(201,168,76,0.07) 0%, transparent 70%),
+        linear-gradient(160deg, #0d0d0d 0%, #080808 50%, #0a0a08 100%);
+      z-index: 0;
+    }
+    /* Animated shimmer lines */
+    .hero-bg::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        repeating-linear-gradient(
+          -60deg,
+          transparent 0px, transparent 80px,
+          rgba(201,168,76,0.025) 80px, rgba(201,168,76,0.025) 81px
+        );
+      animation: shimmer 8s linear infinite;
+    }
+    .hero-bg::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 200px;
+      background: linear-gradient(to top, var(--black), transparent);
+      z-index: 1;
+    }
+    @keyframes shimmer {
+      0% { transform: translateX(-200px); }
+      100% { transform: translateX(200px); }
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 620px;
+    }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(201,168,76,0.1);
+      border: 1px solid rgba(201,168,76,0.3);
+      border-radius: 50px;
+      padding: 0.4rem 1.1rem;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1.75rem;
+    }
+    .hero-badge::before {
+      content: '';
+      width: 6px; height: 6px;
+      background: var(--gold);
+      border-radius: 50%;
+      animation: pulse 2s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(0.8); }
+    }
+    .hero-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.8rem, 6vw, 5rem);
+      font-weight: 800;
+      line-height: 1.08;
+      color: var(--white);
+      margin-bottom: 1.5rem;
+    }
+    .hero-title em {
+      font-style: normal;
+      background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 50%, var(--gold-dark) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero-sub {
+      font-size: 1.15rem;
+      color: var(--light-gray);
+      max-width: 520px;
+      margin-bottom: 2.5rem;
+      line-height: 1.8;
+    }
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      flex-wrap: wrap;
+      margin-bottom: 3.5rem;
+    }
+    .hero-phone {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      color: var(--light-gray);
+      font-size: 0.95rem;
+      font-weight: 500;
+    }
+    .hero-phone svg { color: var(--gold); flex-shrink: 0; }
+    .hero-phones { display: flex; align-items: flex-start; gap: 0.6rem; }
+    .hero-phones-list { display: flex; flex-direction: column; gap: 0.25rem; }
+    .hero-phone-entry { display: flex; align-items: center; gap: 0.5rem; text-decoration: none; color: var(--light-gray); font-size: 0.9rem; transition: color 0.2s; }
+    .hero-phone-entry:hover { color: var(--gold); }
+    .hero-phone-name { color: var(--gold); font-weight: 700; font-size: 0.78rem; letter-spacing: 0.06em; min-width: 52px; }
+    .hero-phone-num { font-weight: 500; }
+    .hero-stats {
+      display: flex;
+      gap: 3rem;
+      flex-wrap: wrap;
+      padding-top: 2.5rem;
+      border-top: 1px solid var(--border);
+    }
+    .stat-item {}
+    .stat-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: var(--gold);
+      line-height: 1;
+    }
+    .stat-label {
+      font-size: 0.8rem;
+      color: var(--gray);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-top: 0.3rem;
+    }
+    /* Floating epoxy orb */
+    .hero-orb {
+      position: absolute;
+      right: -5%;
+      top: 50%;
+      transform: translateY(-50%);
+      width: clamp(300px, 45vw, 600px);
+      aspect-ratio: 1;
+      border-radius: 50%;
+      background: radial-gradient(ellipse at 35% 35%,
+        rgba(201,168,76,0.15) 0%,
+        rgba(201,168,76,0.05) 40%,
+        transparent 70%
+      );
+      border: 1px solid rgba(201,168,76,0.1);
+      animation: floatOrb 6s ease-in-out infinite;
+      z-index: 1;
+    }
+    .hero-orb::before {
+      content: '';
+      position: absolute;
+      inset: 15%;
+      border-radius: 50%;
+      border: 1px solid rgba(201,168,76,0.15);
+      background: radial-gradient(ellipse at 30% 30%,
+        rgba(201,168,76,0.1) 0%,
+        rgba(30,20,5,0.4) 50%,
+        rgba(15,10,2,0.6) 100%
+      );
+      box-shadow: inset 0 0 60px rgba(201,168,76,0.08);
+    }
+    @keyframes floatOrb {
+      0%, 100% { transform: translateY(-50%) translateX(0); }
+      50% { transform: translateY(calc(-50% - 20px)) translateX(-10px); }
+    }
+    /* Hero logo visual */
+    .hero-logo-visual {
+      position: absolute;
+      right: 5%;
+      top: 50%;
+      transform: translateY(-50%);
+      width: clamp(260px, 32vw, 440px);
+      aspect-ratio: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 2;
+      animation: floatOrb 6s ease-in-out infinite;
+    }
+    .hero-logo-visual img {
+      width: 78%;
+      height: 78%;
+      object-fit: contain;
+      border-radius: 18px;
+      filter:
+        drop-shadow(0 0 40px rgba(201,168,76,0.55))
+        drop-shadow(0 0 100px rgba(201,168,76,0.28));
+      transition: filter 0.4s ease;
+    }
+    .hero-logo-visual img:hover {
+      filter:
+        drop-shadow(0 0 60px rgba(201,168,76,0.8))
+        drop-shadow(0 0 140px rgba(201,168,76,0.45));
+    }
+    @media (max-width: 900px) {
+      .hero-logo-visual { display: none; }
+    }
+
+    /* ===================== ABOUT ===================== */
+    #about {
+      padding: 7rem 0;
+      background: var(--dark);
+      position: relative;
+      overflow: hidden;
+    }
+    #about::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    }
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+    }
+    .about-visual {
+      position: relative;
+    }
+    .about-main-img {
+      width: 100%;
+      aspect-ratio: 4/3;
+      border-radius: 8px;
+      overflow: hidden;
+      background:
+        linear-gradient(135deg,
+          #1a1510 0%, #2a2010 20%,
+          #c9a84c 35%, #e8c97a 45%,
+          #c9a84c 55%, #1a1510 70%,
+          #0d0d0d 100%
+        );
+      box-shadow: 0 30px 80px rgba(0,0,0,0.6);
+      position: relative;
+    }
+    .about-accent-img {
+      position: absolute;
+      bottom: -30px;
+      right: -30px;
+      width: 55%;
+      aspect-ratio: 1;
+      border-radius: 8px;
+      overflow: hidden;
+      border: 4px solid var(--black);
+      background: linear-gradient(135deg, #0d1b2a 0%, #1b3a5c 40%, #0a2540 70%, #0d1b2a 100%);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.7);
+    }
+    .experience-badge {
+      position: absolute;
+      top: -20px;
+      left: -20px;
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--gold-dark), var(--gold), var(--gold-light));
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 10px 30px rgba(201,168,76,0.4);
+      z-index: 2;
+    }
+    .experience-badge .num {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--black);
+      line-height: 1;
+    }
+    .experience-badge .text {
+      font-size: 0.55rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      color: rgba(0,0,0,0.7);
+      text-align: center;
+      text-transform: uppercase;
+      line-height: 1.2;
+      margin-top: 2px;
+    }
+    .about-content {}
+    .owners-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+    .owner-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.9rem;
+      transition: var(--transition);
+    }
+    .owner-card:hover {
+      border-color: var(--gold);
+      transform: translateY(-2px);
+    }
+    .owner-avatar {
+      width: 48px; height: 48px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--gold-dark), var(--gold));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--black);
+      flex-shrink: 0;
+    }
+    .owner-info {}
+    .owner-name { font-weight: 600; font-size: 0.9rem; color: var(--white); }
+    .owner-role { font-size: 0.75rem; color: var(--gold); letter-spacing: 0.05em; margin-top: 1px; }
+
+    /* ===================== SERVICES ===================== */
+    #services {
+      padding: 7rem 0;
+      background: var(--black);
+      position: relative;
+    }
+    .services-header { text-align: center; margin-bottom: 4rem; }
+    .services-header .section-sub { margin: 0 auto; text-align: center; }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+    }
+    .service-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 2.5rem 2rem;
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+      cursor: default;
+    }
+    .service-card::before {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--gold-dark), var(--gold), var(--gold-light));
+      transform: scaleX(0);
+      transition: transform var(--transition);
+      transform-origin: left;
+    }
+    .service-card:hover {
+      border-color: rgba(201,168,76,0.35);
+      transform: translateY(-6px);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.5), 0 0 40px rgba(201,168,76,0.06);
+    }
+    .service-card:hover::before { transform: scaleX(1); }
+    .service-icon {
+      width: 60px; height: 60px;
+      border-radius: 12px;
+      background: rgba(201,168,76,0.1);
+      border: 1px solid rgba(201,168,76,0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.5rem;
+      transition: var(--transition);
+    }
+    .service-card:hover .service-icon {
+      background: rgba(201,168,76,0.2);
+    }
+    .service-icon svg { color: var(--gold); }
+    .service-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 0.75rem;
+    }
+    .service-desc { font-size: 0.9rem; color: var(--gray); line-height: 1.75; }
+    .service-features {
+      margin-top: 1.25rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+    .service-features li {
+      font-size: 0.82rem;
+      color: var(--light-gray);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .service-features li::before {
+      content: '';
+      width: 5px; height: 5px;
+      background: var(--gold);
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    /* ===================== GALLERY ===================== */
+    #gallery {
+      padding: 7rem 0;
+      background: var(--dark);
+      position: relative;
+    }
+    #gallery::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    }
+    .gallery-header { text-align: center; margin-bottom: 4rem; }
+    .gallery-header .section-sub { margin: 0 auto; text-align: center; }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+    .gallery-item {}
+    .gallery-label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.75rem;
+    }
+    /* ---- Comparison Slider ---- */
+    .comparison {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 4/3;
+      border-radius: 10px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+      cursor: col-resize;
+      user-select: none;
+    }
+    /* Both layers fill the full comparison area */
+    .ci-before, .ci-after,
+    .ci-div {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+    .ci-before, .ci-after { object-fit: cover; }
+    /* AFTER starts clipped — shows only RIGHT half (drag handle left to reveal more BEFORE) */
+    .ci-after, .ci-after-div {
+      clip-path: inset(0 0 0 50%);
+      transition: none;
+    }
+    /* CSS gradient floors — concrete BEFORE */
+    .ci-concrete {
+      background:
+        repeating-linear-gradient(90deg, transparent 0px, transparent 40px, rgba(0,0,0,0.05) 40px, rgba(0,0,0,0.05) 41px),
+        repeating-linear-gradient(0deg, transparent 0px, transparent 40px, rgba(0,0,0,0.05) 40px, rgba(0,0,0,0.05) 41px),
+        linear-gradient(160deg, #a0a0a0 0%, #7c7c7c 30%, #8c8c8c 60%, #727272 100%);
+    }
+    /* CSS gradient floors — epoxy AFTER */
+    .ci-gold-grad {
+      background: linear-gradient(135deg,
+        #1a1005 0%, #2e1d08 15%,
+        #c9a84c 30%, #e8c97a 45%,
+        #c9a84c 55%, #2e1d08 70%,
+        #1a1005 85%, #0d0a02 100%);
+    }
+    /* BEFORE / AFTER labels */
+    .cl-before, .cl-after {
+      position: absolute;
+      bottom: 14px;
+      padding: 4px 14px;
+      border-radius: 4px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      z-index: 15;
+      pointer-events: none;
+    }
+    .cl-before {
+      left: 14px;
+      background: rgba(0,0,0,0.6);
+      color: var(--light-gray);
+    }
+    .cl-after {
+      right: 14px;
+      background: rgba(201,168,76,0.9);
+      color: var(--black);
+    }
+    /* Slider handle */
+    .comp-handle {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      width: 3px;
+      height: 100%;
+      background: var(--gold);
+      transform: translateX(-50%);
+      z-index: 10;
+      cursor: col-resize;
+    }
+    .comp-handle-circle {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%,-50%);
+      width: 44px; height: 44px;
+      border-radius: 50%;
+      background: var(--gold);
+      box-shadow: 0 0 20px rgba(201,168,76,0.6);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .comp-handle-circle svg { color: var(--black); }
+    .add-photo-note {
+      text-align: center;
+      margin-top: 3rem;
+      padding: 1.25rem;
+      background: rgba(201,168,76,0.05);
+      border: 1px dashed rgba(201,168,76,0.3);
+      border-radius: 8px;
+    }
+    .add-photo-note p {
+      font-size: 0.85rem;
+      color: var(--gray);
+    }
+    .add-photo-note strong { color: var(--gold); }
+
+    /* ===================== WHY CHOOSE US ===================== */
+    #why {
+      padding: 7rem 0;
+      background: var(--black);
+      position: relative;
+      overflow: hidden;
+    }
+    .why-glow {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%,-50%);
+      width: 600px; height: 600px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(201,168,76,0.04) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .why-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+    }
+    .why-features {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+    .why-feature {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.75rem 1.5rem;
+      transition: var(--transition);
+    }
+    .why-feature:hover {
+      border-color: rgba(201,168,76,0.4);
+      transform: translateY(-3px);
+      box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+    }
+    .why-icon {
+      width: 48px; height: 48px;
+      border-radius: 10px;
+      background: rgba(201,168,76,0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1rem;
+      color: var(--gold);
+    }
+    .why-feature-title {
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: var(--white);
+      margin-bottom: 0.4rem;
+    }
+    .why-feature-text { font-size: 0.82rem; color: var(--gray); line-height: 1.65; }
+
+    /* ===================== REVIEWS ===================== */
+    #reviews {
+      padding: 7rem 0;
+      background: var(--dark);
+      position: relative;
+    }
+    #reviews::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    }
+    .reviews-header { text-align: center; margin-bottom: 4rem; }
+    .reviews-header .section-sub { margin: 0 auto; text-align: center; }
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+    .review-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 2rem;
+      transition: var(--transition);
+    }
+    .review-card:hover {
+      border-color: rgba(201,168,76,0.3);
+      transform: translateY(-3px);
+    }
+    .review-stars {
+      display: flex;
+      gap: 3px;
+      margin-bottom: 1.25rem;
+    }
+    .review-stars svg { color: var(--gold); }
+    .review-text {
+      font-size: 0.9rem;
+      color: var(--light-gray);
+      line-height: 1.75;
+      margin-bottom: 1.5rem;
+      font-style: italic;
+    }
+    .review-author {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .review-avatar {
+      width: 40px; height: 40px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--gold-dark), var(--gold));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 0.9rem;
+      color: var(--black);
+    }
+    .review-name { font-weight: 600; font-size: 0.9rem; color: var(--white); }
+    .review-location { font-size: 0.75rem; color: var(--gray); margin-top: 1px; }
+    .reviews-coming {
+      text-align: center;
+      margin-top: 3rem;
+      padding: 1.5rem;
+      background: rgba(201,168,76,0.04);
+      border: 1px dashed rgba(201,168,76,0.2);
+      border-radius: 8px;
+    }
+    .reviews-coming p { font-size: 0.85rem; color: var(--gray); }
+    .reviews-coming strong { color: var(--gold); }
+
+    /* ===================== CONTACT ===================== */
+    #contact {
+      padding: 7rem 0;
+      background: var(--black);
+      position: relative;
+      overflow: hidden;
+    }
+    .contact-glow {
+      position: absolute;
+      bottom: -200px; right: -200px;
+      width: 600px; height: 600px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(201,168,76,0.06) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.3fr;
+      gap: 5rem;
+      align-items: start;
+    }
+    .contact-info {}
+    .contact-info-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+    .contact-info-icon {
+      width: 48px; height: 48px;
+      border-radius: 10px;
+      background: rgba(201,168,76,0.1);
+      border: 1px solid rgba(201,168,76,0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--gold);
+      flex-shrink: 0;
+    }
+    .contact-info-label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.3rem;
+    }
+    .contact-info-value {
+      font-size: 1rem;
+      color: var(--white);
+      font-weight: 500;
+    }
+    .contact-info-value a { color: var(--white); transition: color var(--transition); }
+    .contact-info-value a:hover { color: var(--gold); }
+    .social-links {
+      display: flex;
+      gap: 0.75rem;
+      margin-top: 2.5rem;
+    }
+    .social-link {
+      width: 44px; height: 44px;
+      border-radius: 8px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--light-gray);
+      transition: var(--transition);
+    }
+    .social-link:hover {
+      background: rgba(201,168,76,0.1);
+      border-color: var(--gold);
+      color: var(--gold);
+    }
+
+    /* Contact Form */
+    .contact-form-wrap {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 2.5rem;
+    }
+    .contact-form-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      color: var(--white);
+      margin-bottom: 0.5rem;
+    }
+    .contact-form-sub {
+      font-size: 0.875rem;
+      color: var(--gray);
+      margin-bottom: 2rem;
+    }
+    .form-group { margin-bottom: 1.25rem; }
+    .form-label {
+      display: block;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--light-gray);
+      margin-bottom: 0.5rem;
+    }
+    .form-input,
+    .form-textarea {
+      width: 100%;
+      background: var(--card2);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 6px;
+      padding: 0.875rem 1rem;
+      color: var(--white);
+      font-family: inherit;
+      font-size: 0.95rem;
+      transition: border-color var(--transition);
+      resize: none;
+    }
+    .form-input:focus,
+    .form-textarea:focus {
+      outline: none;
+      border-color: var(--gold);
+      box-shadow: 0 0 0 3px rgba(201,168,76,0.1);
+    }
+    .form-input::placeholder,
+    .form-textarea::placeholder { color: var(--gray); }
+    .form-textarea { height: 140px; }
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+    .form-submit {
+      width: 100%;
+      text-align: center;
+      margin-top: 0.5rem;
+      font-size: 1rem;
+      padding: 1rem;
+      letter-spacing: 0.08em;
+    }
+    .form-success {
+      display: none;
+      text-align: center;
+      padding: 2rem;
+      color: var(--gold);
+    }
+    .form-success svg { margin: 0 auto 1rem; display: block; }
+    .form-success h3 { font-family: 'Playfair Display', serif; color: var(--white); margin-bottom: 0.5rem; }
+    .form-success p { font-size: 0.9rem; color: var(--gray); }
+
+    /* ===================== CTA BANNER ===================== */
+    #cta-banner {
+      padding: 5rem 0;
+      background:
+        linear-gradient(135deg,
+          rgba(201,168,76,0.12) 0%,
+          rgba(201,168,76,0.06) 50%,
+          rgba(201,168,76,0.12) 100%
+        ),
+        var(--dark);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      text-align: center;
+    }
+    #cta-banner .section-title { margin-bottom: 1rem; }
+    #cta-banner .section-sub { margin: 0 auto 2.5rem; text-align: center; }
+    .cta-actions {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1.25rem;
+      flex-wrap: wrap;
+    }
+
+    /* ===================== FOOTER ===================== */
+    footer {
+      background: #050505;
+      border-top: 1px solid var(--border);
+      padding: 3rem 0 1.5rem;
+    }
+    .footer-top {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr;
+      gap: 4rem;
+      padding-bottom: 3rem;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .footer-brand {}
+    .footer-logo-text {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--white);
+      letter-spacing: 0.05em;
+      margin-bottom: 0.25rem;
+    }
+    .footer-tagline {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.25em;
+      color: var(--gold);
+      text-transform: uppercase;
+      margin-bottom: 1.25rem;
+    }
+    .footer-desc {
+      font-size: 0.875rem;
+      color: var(--gray);
+      line-height: 1.75;
+      max-width: 280px;
+    }
+    .footer-heading {
+      font-weight: 700;
+      font-size: 0.8rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--white);
+      margin-bottom: 1.25rem;
+    }
+    .footer-links {
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+    .footer-links a {
+      font-size: 0.875rem;
+      color: var(--gray);
+      transition: color var(--transition);
+    }
+    .footer-links a:hover { color: var(--gold); }
+    .footer-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 1.5rem;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .footer-copy { font-size: 0.8rem; color: var(--gray); }
+    .footer-copy span { color: var(--gold); }
+
+    /* ===================== ANIMATIONS ===================== */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .fade-in-delay-1 { transition-delay: 0.1s; }
+    .fade-in-delay-2 { transition-delay: 0.2s; }
+    .fade-in-delay-3 { transition-delay: 0.3s; }
+    .fade-in-delay-4 { transition-delay: 0.4s; }
+
+    /* ===================== STICKY PHONE ===================== */
+    .sticky-phone {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      z-index: 900;
+      display: flex;
+      align-items: center;
+      gap: 0;
+      overflow: hidden;
+      border-radius: 50px;
+      box-shadow: 0 10px 40px rgba(201,168,76,0.4);
+      transition: var(--transition);
+    }
+    .sticky-phone-icon {
+      width: 56px; height: 56px;
+      background: linear-gradient(135deg, var(--gold), var(--gold-light));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--black);
+      flex-shrink: 0;
+      border-radius: 50%;
+    }
+    .sticky-phone-icon svg { animation: ring 3s ease-in-out infinite; }
+    @keyframes ring {
+      0%, 100% { transform: rotate(0); }
+      10% { transform: rotate(15deg); }
+      20% { transform: rotate(-10deg); }
+      30% { transform: rotate(10deg); }
+      40% { transform: rotate(-5deg); }
+      50% { transform: rotate(5deg); }
+      60% { transform: rotate(0); }
+    }
+
+    /* ===================== RESPONSIVE ===================== */
+    @media (max-width: 1024px) {
+      .about-grid,
+      .why-grid { gap: 3rem; }
+      .contact-grid { gap: 3rem; }
+      .gallery-grid { gap: 1.5rem; }
+    }
+
+    /* ===================== OWNER PHOTOS ===================== */
+    .owners-photos-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      position: relative;
+    }
+    .owner-photo-wrap {
+      border-radius: 10px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      background: var(--card);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+      transition: var(--transition);
+    }
+    .owner-photo-wrap:hover {
+      border-color: var(--gold);
+      transform: translateY(-4px);
+      box-shadow: 0 30px 70px rgba(0,0,0,0.6), 0 0 30px rgba(201,168,76,0.12);
+    }
+    .owner-photo-wrap img {
+      width: 100%;
+      aspect-ratio: 3/4;
+      object-fit: cover;
+      object-position: top;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+    .owner-photo-wrap:hover img { transform: scale(1.03); }
+    .owner-photo-info {
+      padding: 0.9rem 1rem;
+      background: var(--card);
+      border-top: 1px solid var(--border);
+    }
+    .owner-photo-name {
+      display: block;
+      font-weight: 600;
+      font-size: 0.9rem;
+      color: var(--white);
+    }
+    .owner-photo-phone {
+      display: block;
+      font-size: 0.8rem;
+      color: var(--gold);
+      text-decoration: none;
+      margin-top: 3px;
+      letter-spacing: 0.03em;
+    }
+    .owner-photo-phone:hover { text-decoration: underline; }
+    .owner-photo-role {
+      display: block;
+      font-size: 0.72rem;
+      color: var(--gold);
+      letter-spacing: 0.05em;
+      margin-top: 2px;
+    }
+
+    /* ===================== COLOR OPTIONS ===================== */
+    #colors {
+      padding: 7rem 0;
+      background: var(--dark);
+      position: relative;
+    }
+    #colors::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    }
+    .colors-header {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+    .colors-header .section-sub { margin: 0 auto; text-align: center; }
+    .flakes-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+    .flake-img-wrap {
+      border-radius: 10px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.4);
+      transition: var(--transition);
+    }
+    .flake-img-wrap:hover {
+      border-color: rgba(201,168,76,0.45);
+      transform: translateY(-5px);
+      box-shadow: 0 30px 70px rgba(0,0,0,0.5), 0 0 30px rgba(201,168,76,0.1);
+    }
+    .flake-img-wrap img {
+      width: 100%;
+      aspect-ratio: 3/4;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+    .flake-img-wrap:hover img { transform: scale(1.04); }
+    .colors-cta {
+      text-align: center;
+      margin-top: 3rem;
+      font-size: 0.95rem;
+      color: var(--light-gray);
+    }
+    .colors-cta a { color: var(--gold); }
+    .colors-cta a:hover { text-decoration: underline; }
+
+    /* ===================== VIDEOS ===================== */
+    #videos {
+      padding: 5rem 0;
+      background: var(--black);
+      position: relative;
+    }
+    .videos-header { text-align: center; margin-bottom: 2.5rem; }
+    .vid-carousel {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0;
+      max-width: 380px;
+      margin: 0 auto;
+    }
+    .vid-stage {
+      width: 100%;
+      overflow: hidden;
+      border-radius: 12px 12px 0 0;
+      border: 1px solid var(--border);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+    }
+    .vid-track {
+      display: flex;
+      transition: transform 0.4s cubic-bezier(0.4,0,0.2,1);
+    }
+    .vid-slide {
+      position: relative;
+      min-width: 100%;
+      cursor: pointer;
+    }
+    .vid-slide video {
+      width: 100%;
+      aspect-ratio: 9/16;
+      object-fit: cover;
+      display: block;
+    }
+    .video-play-btn {
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 60px; height: 60px;
+      border-radius: 50%;
+      background: rgba(201,168,76,0.92);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      pointer-events: none;
+      transition: opacity 0.3s ease, transform 0.3s ease;
+      box-shadow: 0 0 30px rgba(201,168,76,0.5);
+    }
+    .video-play-btn svg { color: #000; margin-left: 4px; }
+    .vid-slide.playing .video-play-btn { opacity: 0; transform: translate(-50%,-50%) scale(0.8); }
+    .vid-slide:hover .video-play-btn { transform: translate(-50%,-50%) scale(1.08); }
+    .vid-slide.playing:hover .video-play-btn { opacity: 0; }
+    /* Custom video controls */
+    .vid-controls {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 14px;
+      background: rgba(20,20,20,0.95);
+      border: 1px solid var(--border);
+      border-top: none;
+      border-radius: 0 0 12px 12px;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    .vid-play-pause {
+      background: none;
+      border: none;
+      color: var(--gold);
+      cursor: pointer;
+      padding: 0;
+      display: flex;
+      align-items: center;
+      flex-shrink: 0;
+    }
+    .vid-play-pause:hover { color: #fff; }
+    .vid-seek-wrap {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .vid-seek {
+      flex: 1;
+      -webkit-appearance: none;
+      appearance: none;
+      height: 4px;
+      border-radius: 4px;
+      background: var(--border);
+      outline: none;
+      cursor: pointer;
+    }
+    .vid-seek::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 14px; height: 14px;
+      border-radius: 50%;
+      background: var(--gold);
+      cursor: pointer;
+      box-shadow: 0 0 6px rgba(201,168,76,0.6);
+    }
+    .vid-seek::-moz-range-thumb {
+      width: 14px; height: 14px;
+      border-radius: 50%;
+      background: var(--gold);
+      cursor: pointer;
+      border: none;
+    }
+    .vid-time {
+      font-size: 0.72rem;
+      color: var(--muted);
+      white-space: nowrap;
+      min-width: 80px;
+      text-align: right;
+    }
+    .vid-arrow {
+      width: 44px; height: 44px;
+      border-radius: 50%;
+      background: var(--card);
+      border: 1px solid var(--border);
+      color: var(--gold);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    .vid-arrow:hover { background: rgba(201,168,76,0.15); border-color: var(--gold); }
+    .vid-dots {
+      display: flex;
+      justify-content: center;
+      gap: 0.5rem;
+      margin-top: 1.25rem;
+    }
+    .vid-dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--card);
+      border: 1px solid var(--border);
+      cursor: pointer;
+      transition: background 0.3s, border-color 0.3s;
+    }
+    .vid-dot.active { background: var(--gold); border-color: var(--gold); }
+    .vid-counter {
+      text-align: center;
+      font-size: 0.8rem;
+      color: var(--gray);
+      margin-top: 0.5rem;
+    }
+
+    /* ===================== PHOTO GALLERY ===================== */
+    #photo-gallery {
+      padding: 7rem 0;
+      background: var(--dark);
+      position: relative;
+    }
+    #photo-gallery::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    }
+    .photo-gallery-header { text-align: center; margin-bottom: 4rem; }
+    .photo-gallery-header .section-sub { margin: 0 auto; text-align: center; }
+    .photo-masonry {
+      columns: 3;
+      column-gap: 1rem;
+    }
+    .photo-masonry-item {
+      break-inside: avoid;
+      margin-bottom: 1rem;
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      transition: var(--transition);
+      cursor: zoom-in;
+    }
+    .photo-masonry-item:hover {
+      border-color: rgba(201,168,76,0.4);
+      transform: scale(1.01);
+      box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+    }
+    .photo-masonry-item img {
+      width: 100%;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+    .photo-masonry-item:hover img { transform: scale(1.04); }
+    /* Lightbox */
+    .lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.92);
+      z-index: 2000;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+    .lightbox.open { display: flex; }
+    .lightbox img {
+      max-width: 90vw;
+      max-height: 90vh;
+      border-radius: 8px;
+      object-fit: contain;
+      box-shadow: 0 0 80px rgba(0,0,0,0.8);
+    }
+    .lightbox-close {
+      position: absolute;
+      top: 1.5rem; right: 1.5rem;
+      width: 44px; height: 44px;
+      border-radius: 50%;
+      background: rgba(201,168,76,0.15);
+      border: 1px solid var(--gold);
+      color: var(--gold);
+      font-size: 1.5rem;
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .lightbox-close:hover { background: rgba(201,168,76,0.3); }
+    @media (max-width: 860px) { .photo-masonry { columns: 2; } }
+    @media (max-width: 500px) { .photo-masonry { columns: 1; } }
+
+    @media (max-width: 860px) {
+      .nav-links,
+      .nav-cta { display: none; }
+      .hamburger { display: flex; }
+
+      .about-grid,
+      .why-grid,
+      .contact-grid { grid-template-columns: 1fr; }
+      .about-visual { order: -1; }
+
+      .gallery-grid { grid-template-columns: 1fr; }
+      .flakes-grid { grid-template-columns: 1fr 1fr; }
+      .footer-top { grid-template-columns: 1fr; gap: 2.5rem; }
+      .footer-desc { max-width: 100%; }
+    }
+
+    @media (max-width: 600px) {
+      .hero-stats { gap: 2rem; }
+      .services-grid { grid-template-columns: 1fr; }
+      .owners-grid { grid-template-columns: 1fr; }
+      .why-features { grid-template-columns: 1fr; }
+      .form-row { grid-template-columns: 1fr; }
+      .footer-bottom { flex-direction: column; text-align: center; }
+      .flakes-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ========== STICKY PHONE BUTTON ========== -->
+  <a href="tel:8322928797" class="sticky-phone" aria-label="Call Carnar Epoxy">
+    <div class="sticky-phone-icon">
+      <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 11a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .18h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+    </div>
+  </a>
+
+  <!-- ========== NAVBAR ========== -->
+  <nav id="navbar" role="navigation" aria-label="Main navigation">
+    <div class="container">
+      <div class="nav-inner">
+        <a href="#hero" class="nav-logo">
+          <img src="logo.jpeg" alt="Carnar Epoxy Logo" style="height:56px;width:auto;display:block;" />
+        </a>
+
+        <ul class="nav-links">
+          <li><a href="#about" data-i18n="nav-about">About</a></li>
+          <li><a href="#services" data-i18n="nav-services">Services</a></li>
+          <li><a href="#gallery" data-i18n="nav-gallery">Gallery</a></li>
+          <li><a href="#why" data-i18n="nav-why">Why Us</a></li>
+          <li><a href="#contact" data-i18n="nav-contact">Contact</a></li>
+        </ul>
+
+        <button class="lang-toggle" id="langToggle" onclick="toggleLang()" title="Switch Language / Cambiar Idioma">🌐 <span id="langLabel">ES</span></button>
+
+        <a href="tel:8322928797" class="btn btn-gold nav-cta">
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 11a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .18h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+          832-292-8797
+        </a>
+
+        <button class="hamburger" id="hamburger" aria-label="Open menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu" role="dialog" aria-label="Mobile navigation">
+    <a href="#about" class="mobile-nav-link" data-i18n="nav-about">About</a>
+    <a href="#services" class="mobile-nav-link" data-i18n="nav-services">Services</a>
+    <a href="#gallery" class="mobile-nav-link" data-i18n="nav-gallery">Gallery</a>
+    <a href="#why" class="mobile-nav-link" data-i18n="nav-why">Why Us</a>
+    <a href="#contact" class="mobile-nav-link" data-i18n="nav-contact">Contact</a>
+    <a href="tel:8322928797" class="btn btn-gold">Call 832-292-8797</a>
+  </div>
+
+  <!-- ========== HERO ========== -->
+  <section id="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-orb"></div>
+
+    <!-- Big logo in the right empty space -->
+    <div class="hero-logo-visual">
+      <img src="logo.jpeg" alt="Carnar Epoxy" />
+    </div>
+
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-badge" data-i18n="hero-badge">Houston's Premier Epoxy Specialists</div>
+
+        <h1 class="hero-title" data-i18n-html="hero-title">
+          Premium Epoxy<br />
+          Floors That <em>Last</em><br />
+          a Lifetime
+        </h1>
+
+        <p class="hero-sub" data-i18n="hero-sub">
+          Transform any surface into a showroom-quality masterpiece. Carnar Epoxy delivers
+          flawless installations with premium materials, expert craftsmanship, and results that
+          speak for themselves.
+        </p>
+
+        <div class="hero-actions">
+          <a href="#contact" class="btn btn-gold" style="font-size:1.05rem; padding:1.1rem 2.5rem;">
+            <span data-i18n="hero-cta">Get a Free Quote</span>
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+          <div class="hero-phones">
+            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" style="color:var(--gold);flex-shrink:0;margin-top:2px;"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 11a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .18h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+            <div class="hero-phones-list">
+              <a href="tel:8322928797" class="hero-phone-entry">
+                <span class="hero-phone-name">Narciso</span>
+                <span class="hero-phone-num">832-292-8797</span>
+              </a>
+              <a href="tel:8322106313" class="hero-phone-entry">
+                <span class="hero-phone-name">Carlos</span>
+                <span class="hero-phone-num">832-210-6313</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-stats">
+          <div class="stat-item">
+            <div class="stat-num">100%</div>
+            <div class="stat-label" data-i18n="hero-stat1">Satisfaction Rate</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-num">5★</div>
+            <div class="stat-label" data-i18n="hero-stat2">Client Reviews</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-num">Premium</div>
+            <div class="stat-label" data-i18n="hero-stat3">Materials Only</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-num">Free</div>
+            <div class="stat-label" data-i18n="hero-stat4">Estimates</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== ABOUT ========== -->
+  <section id="about">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-visual fade-in">
+          <div class="experience-badge">
+            <div class="num">5+</div>
+            <div class="text" data-i18n="years-text">Years of<br>Excellence</div>
+          </div>
+          <div class="owners-photos-grid">
+            <div class="owner-photo-wrap">
+              <img src="narciso2.jpeg" alt="Narciso Muro — Co-Owner of Carnar Epoxy" />
+              <div class="owner-photo-info">
+                <span class="owner-photo-name">Narciso Muro</span>
+                <a href="tel:8322928797" class="owner-photo-phone">832-292-8797</a>
+              </div>
+            </div>
+            <div class="owner-photo-wrap">
+              <img src="carlos.jpeg" alt="Carlos Yañez — Co-Owner of Carnar Epoxy" />
+              <div class="owner-photo-info">
+                <span class="owner-photo-name">Carlos Yañez</span>
+                <a href="tel:8322106313" class="owner-photo-phone">832-210-6313</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="about-content fade-in fade-in-delay-1">
+          <p class="section-label" data-i18n="about-label">About Us</p>
+          <div class="gold-line"></div>
+          <h2 class="section-title" data-i18n="about-title">Two Craftsmen, One Uncompromising Standard</h2>
+          <p class="section-sub" data-i18n="about-p1">
+            Carnar Epoxy was built on a simple belief: every floor deserves to be a masterpiece.
+            Founded by Narciso Muro and Carlos Yanes, we bring hands-on expertise, premium
+            materials, and a relentless attention to detail to every project we touch.
+          </p>
+          <p style="font-size:0.95rem; color:var(--gray); line-height:1.8; margin-top:1.25rem;" data-i18n="about-p2">
+            From residential garages to high-traffic commercial spaces, we treat every job with
+            the same dedication — because your floor isn't just a surface, it's a foundation for
+            everything built on top of it. We don't cut corners. We don't use cheap materials.
+            And we don't leave until the job is done right.
+          </p>
+
+          <div class="owners-grid">
+            <div class="owner-card">
+              <div class="owner-avatar">NM</div>
+              <div class="owner-info">
+                <div class="owner-name">Narciso Muro</div>
+              </div>
+            </div>
+            <div class="owner-card">
+              <div class="owner-avatar">CY</div>
+              <div class="owner-info">
+                <div class="owner-name">Carlos Yañez</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== SERVICES ========== -->
+  <section id="services">
+    <div class="container">
+      <div class="services-header">
+        <p class="section-label" data-i18n="services-label">What We Do</p>
+        <div class="gold-line center"></div>
+        <h2 class="section-title" data-i18n="services-title">Our Services</h2>
+        <p class="section-sub" data-i18n="services-sub">
+          Whether you're upgrading a garage, outfitting a commercial space, or creating a
+          one-of-a-kind custom design — we have the expertise to make it exceptional.
+        </p>
+      </div>
+
+      <div class="services-grid">
+        <!-- Garage Floors -->
+        <div class="service-card fade-in">
+          <div class="service-icon">
+            <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13" rx="1"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+          </div>
+          <h3 class="service-name" data-i18n="svc1-name">Epoxy Garage Floors</h3>
+          <p class="service-desc">
+            Turn your garage into the cleanest room in the house. Durable, chemical-resistant,
+            and stunning — our garage coatings handle everything from oil spills to daily traffic.
+          </p>
+          <ul class="service-features">
+            <li>UV-resistant coating</li>
+            <li>Anti-slip texture options</li>
+            <li>Chip &amp; flake finishes</li>
+            <li>Multi-coat systems</li>
+          </ul>
+        </div>
+
+        <!-- Metallic Epoxy -->
+        <div class="service-card fade-in fade-in-delay-1">
+          <div class="service-icon">
+            <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+          </div>
+          <h3 class="service-name" data-i18n="svc2-name">Metallic Epoxy</h3>
+          <p class="service-desc">
+            A breathtaking 3D effect that makes every floor truly one-of-a-kind. Swirling metallic
+            pigments create depth and movement that looks different from every angle.
+          </p>
+          <ul class="service-features">
+            <li>Unique 3D visual effect</li>
+            <li>Dozens of color options</li>
+            <li>High-gloss topcoat</li>
+            <li>Seamless finish</li>
+          </ul>
+        </div>
+
+        <!-- Commercial Flooring -->
+        <div class="service-card fade-in fade-in-delay-2">
+          <div class="service-icon">
+            <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          </div>
+          <h3 class="service-name" data-i18n="svc3-name">Commercial Flooring</h3>
+          <p class="service-desc">
+            Heavy-duty epoxy systems built for warehouses, showrooms, restaurants, and retail.
+            Built to withstand heavy foot traffic, machinery, and the demands of daily business.
+          </p>
+          <ul class="service-features">
+            <li>Industrial-grade formulas</li>
+            <li>Quick-cure options</li>
+            <li>Safety markings available</li>
+            <li>Chemical &amp; stain resistant</li>
+          </ul>
+        </div>
+
+        <!-- Custom Designs -->
+        <div class="service-card fade-in fade-in-delay-3">
+          <div class="service-icon">
+            <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="13.5" cy="6.5" r=".5" fill="currentColor"/><circle cx="17.5" cy="10.5" r=".5" fill="currentColor"/><circle cx="8.5" cy="7.5" r=".5" fill="currentColor"/><circle cx="6.5" cy="12.5" r=".5" fill="currentColor"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 011.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"/></svg>
+          </div>
+          <h3 class="service-name" data-i18n="svc4-name">Custom Designs</h3>
+          <p class="service-desc">
+            Your vision, executed flawlessly. Logos, patterns, color-blocked zones, terrazzo-style
+            looks — we bring custom design concepts to life with precision and artistry.
+          </p>
+          <ul class="service-features">
+            <li>Logo embedding</li>
+            <li>Custom color matching</li>
+            <li>Multi-zone designs</li>
+            <li>Residential &amp; commercial</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== COLOR OPTIONS ========== -->
+  <section id="colors">
+    <div class="container">
+      <div class="colors-header">
+        <p class="section-label" data-i18n="colors-label">Finish Options</p>
+        <div class="gold-line center"></div>
+        <h2 class="section-title" data-i18n="colors-title">Choose Your Color</h2>
+        <p class="section-sub" data-i18n="colors-sub">Browse our full range of epoxy flake color blends. Dozens of options to match your style — bring your vision and we'll make it happen.</p>
+      </div>
+      <div class="flakes-grid">
+        <div class="flake-img-wrap fade-in">
+          <img src="flakes1.jpeg" alt="Epoxy flake color sample options" />
+        </div>
+        <div class="flake-img-wrap fade-in fade-in-delay-1">
+          <img src="flakes2.jpeg" alt="Epoxy flake color wheel display" />
+        </div>
+        <div class="flake-img-wrap fade-in fade-in-delay-2">
+          <img src="flakes3.jpeg" alt="Epoxy flake color combinations" />
+        </div>
+      </div>
+      <div class="colors-cta fade-in">
+        <p data-i18n-html="colors-note">Not sure which color fits best? <strong><a href="#contact">Contact us for samples</a></strong> — we'll bring them to your location.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== VIDEOS ========== -->
+  <section id="videos">
+    <div class="container">
+      <div class="videos-header">
+        <p class="section-label">Watch Us Work</p>
+        <div class="gold-line center"></div>
+        <h2 class="section-title">See the Transformation</h2>
+      </div>
+      <div class="vid-carousel">
+        <button class="vid-arrow vid-prev" onclick="vidNav(-1)" aria-label="Previous video" style="display:none">
+          <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg>
+        </button>
+        <div class="vid-stage">
+          <div class="vid-track" id="vidTrack">
+            <div class="vid-slide">
+              <video id="mainVid" src="video1.mp4" playsinline preload="metadata"></video>
+              <div class="video-play-btn"><svg width="22" height="22" fill="currentColor" viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div>
+            </div>
+          </div>
+        </div>
+        <!-- Custom controls -->
+        <div class="vid-controls">
+          <button class="vid-play-pause" id="vidPlayPauseBtn" onclick="vidTogglePlay()" aria-label="Play/Pause">
+            <svg id="vidPlayIcon" width="22" height="22" fill="currentColor" viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg>
+            <svg id="vidPauseIcon" width="22" height="22" fill="currentColor" viewBox="0 0 24 24" style="display:none"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>
+          </button>
+          <div class="vid-seek-wrap">
+            <input type="range" class="vid-seek" id="vidSeek" min="0" max="100" value="0" step="0.1">
+          </div>
+          <span class="vid-time" id="vidTime">0:00 / 0:00</span>
+        </div>
+        <button class="vid-arrow vid-next" onclick="vidNav(1)" aria-label="Next video" style="display:none">
+          <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
+        </button>
+      </div>
+      <div class="vid-dots" id="vidDots" style="display:none">
+        <span class="vid-dot active" onclick="vidGoTo(0)"></span>
+      </div>
+      <p class="vid-counter" id="vidCounter" style="display:none">1 / 1</p>
+    </div>
+  </section>
+
+  <!-- ========== GALLERY ========== -->
+  <section id="gallery">
+    <div class="container">
+      <div class="gallery-header">
+        <p class="section-label" data-i18n="gallery-label">Our Work</p>
+        <div class="gold-line center"></div>
+        <h2 class="section-title" data-i18n="gallery-title">Before &amp; After Transformations</h2>
+        <p class="section-sub" data-i18n="gallery-sub">
+          Drag the slider to see the dramatic difference a professional epoxy installation makes.
+          Every project tells a story of transformation.
+        </p>
+      </div>
+
+      <div class="gallery-grid">
+        <!-- Slider 1 — Garage (REAL PHOTOS) -->
+        <div class="gallery-item fade-in">
+          <p class="gallery-label" data-i18n="gallery-label-1">Residential Garage Floor</p>
+          <div class="comparison" id="comp1">
+            <!-- BEFORE: full-width background (left side) -->
+            <img class="ci-before" src="before1.jpeg" alt="Garage floor before epoxy — bare concrete during preparation" />
+            <!-- AFTER: full-width, clipped to reveal right side via clip-path -->
+            <img class="ci-after" src="after1.jpeg" alt="Garage floor after epoxy — blue grey flake finish" />
+            <div class="comp-handle" id="comp1-handle">
+              <div class="comp-handle-circle">
+                <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M21 12H3M15 6l6 6-6 6M9 6L3 12l6 6"/></svg>
+              </div>
+            </div>
+            <span class="cl-before">BEFORE</span>
+            <span class="cl-after">AFTER</span>
+          </div>
+        </div>
+
+        <!-- Slider 2 — before2 + after2 -->
+        <div class="gallery-item fade-in fade-in-delay-1">
+          <p class="gallery-label" data-i18n="gallery-label-2">Epoxy Flake — Project 2</p>
+          <div class="comparison" id="comp2">
+            <img class="ci-before" src="before2.jpeg" alt="Floor before epoxy — project 2" />
+            <img class="ci-after" src="after2.jpeg" alt="Floor after epoxy — project 2" />
+            <div class="comp-handle" id="comp2-handle">
+              <div class="comp-handle-circle">
+                <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M21 12H3M15 6l6 6-6 6M9 6L3 12l6 6"/></svg>
+              </div>
+            </div>
+            <span class="cl-before">BEFORE</span>
+            <span class="cl-after">AFTER</span>
+          </div>
+        </div>
+
+        <!-- Slider 3 — before3 + after3 -->
+        <div class="gallery-item fade-in fade-in-delay-2">
+          <p class="gallery-label" data-i18n="gallery-label-3">Epoxy Flake — Project 3</p>
+          <div class="comparison" id="comp3">
+            <img class="ci-before" src="before3.jpeg" alt="Floor before epoxy — project 3" />
+            <img class="ci-after" src="after3.jpeg" alt="Floor after epoxy — project 3" />
+            <div class="comp-handle" id="comp3-handle">
+              <div class="comp-handle-circle">
+                <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M21 12H3M15 6l6 6-6 6M9 6L3 12l6 6"/></svg>
+              </div>
+            </div>
+            <span class="cl-before">BEFORE</span>
+            <span class="cl-after">AFTER</span>
+          </div>
+        </div>
+
+        <!-- Slider 4 — before4 + after4 -->
+        <div class="gallery-item fade-in fade-in-delay-3">
+          <p class="gallery-label" data-i18n="gallery-label-4">Epoxy Flake — Project 4</p>
+          <div class="comparison" id="comp4">
+            <img class="ci-before" src="before4.jpeg" alt="Floor before epoxy — project 4" />
+            <img class="ci-after" src="after4.jpeg" alt="Floor after epoxy — project 4" />
+            <div class="comp-handle" id="comp4-handle">
+              <div class="comp-handle-circle">
+                <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M21 12H3M15 6l6 6-6 6M9 6L3 12l6 6"/></svg>
+              </div>
+            </div>
+            <span class="cl-before">BEFORE</span>
+            <span class="cl-after">AFTER</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="add-photo-note fade-in" style="display:flex;flex-direction:column;align-items:center;gap:1.25rem;">
+        <p>
+          <span data-i18n="gallery-note"><strong>📸 More Projects Coming Soon</strong> — Send your before &amp; after photos and they'll be added directly to the gallery.</span>
+        </p>
+        <a href="gallery.html" target="_blank" class="btn btn-gold">
+          View Full Photo Gallery
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== WHY CHOOSE US ========== -->
+  <section id="why">
+    <div class="why-glow"></div>
+    <div class="container">
+      <div class="why-grid">
+        <div class="fade-in">
+          <p class="section-label" data-i18n="why-label">Why Carnar Epoxy</p>
+          <div class="gold-line"></div>
+          <h2 class="section-title" data-i18n="why-title">Built on Quality.<br />Backed by Results.</h2>
+          <p class="section-sub" data-i18n="why-sub">
+            We're not just installers — we're craftsmen who care about every detail. From the first
+            surface prep to the final topcoat, our standards don't slip.
+          </p>
+          <a href="#contact" class="btn btn-gold" style="margin-top:2rem;">
+            <span data-i18n="why-cta">Start Your Project</span>
+            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+
+        <div class="why-features fade-in fade-in-delay-1">
+          <div class="why-feature">
+            <div class="why-icon">
+              <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <div class="why-feature-title" data-i18n="why1-title">Premium Materials</div>
+            <p class="why-feature-text" data-i18n="why1-text">We only use top-grade, industrial-quality epoxy systems — never cheap alternatives.</p>
+          </div>
+
+          <div class="why-feature">
+            <div class="why-icon">
+              <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>
+            </div>
+            <div class="why-feature-title" data-i18n="why2-title">Expert Installation</div>
+            <p class="why-feature-text" data-i18n="why2-text">Proper surface preparation and multi-coat application ensures maximum adhesion and longevity.</p>
+          </div>
+
+          <div class="why-feature">
+            <div class="why-icon">
+              <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+            </div>
+            <div class="why-feature-title" data-i18n="why3-title">Long-Lasting Results</div>
+            <p class="why-feature-text" data-i18n="why3-text">Our floors are built to last decades — resistant to chemicals, abrasion, and heavy traffic.</p>
+          </div>
+
+          <div class="why-feature">
+            <div class="why-icon">
+              <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+            </div>
+            <div class="why-feature-title" data-i18n="why4-title">Customer First</div>
+            <p class="why-feature-text" data-i18n="why4-text">We communicate clearly, show up on time, and don't leave until you're completely satisfied.</p>
+          </div>
+
+          <div class="why-feature">
+            <div class="why-icon">
+              <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </div>
+            <div class="why-feature-title" data-i18n="why5-title">On-Time Delivery</div>
+            <p class="why-feature-text" data-i18n="why5-text">We respect your schedule. Projects are completed efficiently without sacrificing quality.</p>
+          </div>
+
+          <div class="why-feature">
+            <div class="why-icon">
+              <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
+            </div>
+            <div class="why-feature-title" data-i18n="why6-title">Free Estimates</div>
+            <p class="why-feature-text" data-i18n="why6-text">No pressure, no hidden fees. Get a transparent quote for your project at zero cost.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== REVIEWS ========== -->
+  <section id="reviews">
+    <div class="container">
+      <div class="reviews-header">
+        <p class="section-label" data-i18n="reviews-label">Social Proof</p>
+        <div class="gold-line center"></div>
+        <h2 class="section-title" data-i18n="reviews-title">What Our Clients Say</h2>
+        <p class="section-sub" data-i18n="reviews-sub">
+          Real results, real people. Here's what clients have said about working with Carnar Epoxy.
+        </p>
+      </div>
+
+      <div class="reviews-grid">
+        <div class="review-card fade-in">
+          <div class="review-stars">
+            <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <p class="review-text">
+            "These guys are absolutely incredible. My garage floor looks better than a car dealership showroom.
+            Narciso and Carlos were professional, clean, and the finished product exceeded my expectations."
+          </p>
+          <div class="review-author">
+            <div class="review-avatar">JR</div>
+            <div>
+              <div class="review-name">James R.</div>
+              <div class="review-location">Houston, TX</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="review-card fade-in fade-in-delay-1">
+          <div class="review-stars">
+            <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <p class="review-text">
+            "Had the metallic blue epoxy done in our auto shop. Clients constantly ask where we got it done.
+            Great price, fast turnaround, and the quality is unmatched. Will definitely use again."
+          </p>
+          <div class="review-author">
+            <div class="review-avatar">ML</div>
+            <div>
+              <div class="review-name">Miguel L.</div>
+              <div class="review-location">Katy, TX</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="review-card fade-in fade-in-delay-2">
+          <div class="review-stars">
+            <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <p class="review-text">
+            "Carnar Epoxy transformed our restaurant kitchen floor. It's easy to clean, looks sharp,
+            and they worked on the weekend so we didn't lose any business days. Highly recommend!"
+          </p>
+          <div class="review-author">
+            <div class="review-avatar">SC</div>
+            <div>
+              <div class="review-name">Sofia C.</div>
+              <div class="review-location">Sugar Land, TX</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="reviews-coming fade-in">
+        <p><strong>More Reviews Coming Soon</strong> — This section is ready to grow. Add client reviews from Facebook, Google, or direct feedback here as your portfolio builds.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== CTA BANNER ========== -->
+  <section id="cta-banner">
+    <div class="container">
+      <p class="section-label" style="text-align:center;" data-i18n="cta-ready">Ready to Transform Your Floor?</p>
+      <div class="gold-line center"></div>
+      <h2 class="section-title" data-i18n="contact-cta-big">Call Now for a Free Estimate</h2>
+      <p class="section-sub" data-i18n="cta-sub">
+        No pressure. No commitment. Just an honest conversation about your project and what
+        it takes to make your floor exceptional.
+      </p>
+      <div class="cta-actions">
+        <a href="tel:8322928797" class="btn btn-gold" style="font-size:1.1rem; padding:1.15rem 2.75rem;">
+          <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 11a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .18h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+          832-292-8797
+        </a>
+        <a href="#contact" class="btn btn-outline" style="font-size:1.05rem; padding:1.1rem 2.5rem;">
+          <span data-i18n="cta-msg">Send a Message</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== CONTACT ========== -->
+  <section id="contact">
+    <div class="contact-glow"></div>
+    <div class="container">
+      <div class="contact-grid">
+        <div class="fade-in">
+          <p class="section-label" data-i18n="contact-label">Get In Touch</p>
+          <div class="gold-line"></div>
+          <h2 class="section-title" data-i18n="contact-title">Let's Talk About<br />Your Project</h2>
+          <p class="section-sub" style="margin-bottom:2.5rem;" data-i18n="contact-sub">
+            Reach out today for a free, no-obligation estimate. We serve the greater Houston area
+            and surrounding communities.
+          </p>
+
+          <div class="contact-info-item">
+            <div class="contact-info-icon">
+              <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 11a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .18h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+            </div>
+            <div>
+              <div class="contact-info-label" data-i18n="contact-phone-lbl">Phone</div>
+              <div class="contact-info-value">
+                <span style="font-size:0.8rem;color:var(--gold);display:block;margin-bottom:2px;">Narciso</span>
+                <a href="tel:8322928797">832-292-8797</a>
+              </div>
+              <div class="contact-info-value" style="margin-top:0.6rem;">
+                <span style="font-size:0.8rem;color:var(--gold);display:block;margin-bottom:2px;">Carlos</span>
+                <a href="tel:8322106313">832-210-6313</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="contact-info-item">
+            <div class="contact-info-icon">
+              <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div>
+              <div class="contact-info-label" data-i18n="contact-area-lbl">Service Area</div>
+              <div class="contact-info-value" data-i18n="contact-area-val">Greater Houston, TX &amp; Surrounding Areas</div>
+            </div>
+          </div>
+
+          <div class="contact-info-item">
+            <div class="contact-info-icon">
+              <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+            </div>
+            <div>
+              <div class="contact-info-label" data-i18n="contact-fb-lbl">Facebook</div>
+              <div class="contact-info-value">
+                <!-- Replace href with your actual Facebook page URL -->
+                <a href="https://facebook.com/CarnarEpoxy" target="_blank" rel="noopener noreferrer">Carnar Epoxy</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="social-links">
+            <!-- Replace href with actual URL -->
+            <a href="https://facebook.com/CarnarEpoxy" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+              <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+            </a>
+            <a href="tel:8322928797" class="social-link" aria-label="Call us">
+              <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 11a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .18h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="fade-in fade-in-delay-1">
+          <div class="contact-form-wrap">
+            <h3 class="contact-form-title" data-i18n="form-title">Get Your Free Estimate</h3>
+            <p class="contact-form-sub" data-i18n="form-sub">We'll get back to you within 24 hours.</p>
+
+            <form id="contactForm" novalidate>
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label" for="fname" data-i18n="form-fname">First Name</label>
+                  <input class="form-input" type="text" id="fname" name="fname" placeholder="John" data-i18n-ph="form-fname-ph" required />
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="lname" data-i18n="form-lname">Last Name</label>
+                  <input class="form-input" type="text" id="lname" name="lname" placeholder="Smith" data-i18n-ph="form-lname-ph" required />
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="phone" data-i18n="form-phone">Phone Number</label>
+                <input class="form-input" type="tel" id="phone" name="phone" placeholder="(832) 555-0000" data-i18n-ph="form-phone-ph" required />
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="service" data-i18n="form-service">Service Needed</label>
+                <select class="form-input" id="service" name="service">
+                  <option value="" disabled selected>Select a service…</option>
+                  <option>Epoxy Garage Floor</option>
+                  <option>Metallic Epoxy</option>
+                  <option>Commercial Flooring</option>
+                  <option>Custom Design</option>
+                  <option>Not Sure — Need Advice</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="message" data-i18n="form-msg">Project Details</label>
+                <textarea class="form-textarea" id="message" name="message" placeholder="Tell us about your project — square footage, location, timeline, anything helpful…" data-i18n-ph="form-msg-ph"></textarea>
+              </div>
+
+              <button type="submit" class="btn btn-gold form-submit">
+                <span data-i18n="form-submit">Send My Free Quote Request</span>
+                <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </button>
+            </form>
+
+            <div class="form-success" id="formSuccess">
+              <svg width="48" height="48" fill="none" stroke="var(--gold)" stroke-width="1.5" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M9 12l2 2 4-4"/></svg>
+              <h3>Request Sent!</h3>
+              <p>We'll reach out to you within 24 hours to discuss your project. In the meantime, feel free to call us directly at <a href="tel:8322928797" style="color:var(--gold)">832-292-8797</a>.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FOOTER ========== -->
+  <footer>
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="footer-logo-text">CARNAR EPOXY</div>
+          <div class="footer-tagline">Flawless Floors, Built to Last</div>
+          <p class="footer-desc">
+            Premium epoxy flooring for garages, commercial spaces, and custom designs
+            throughout the Houston, TX area. Owned and operated by Narciso Muro &amp; Carlos Yanes.
+          </p>
+        </div>
+
+        <div>
+          <div class="footer-heading">Quick Links</div>
+          <ul class="footer-links">
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#why">Why Choose Us</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="footer-heading">Services</div>
+          <ul class="footer-links">
+            <li><a href="#services">Epoxy Garage Floors</a></li>
+            <li><a href="#services">Metallic Epoxy</a></li>
+            <li><a href="#services">Commercial Flooring</a></li>
+            <li><a href="#services">Custom Designs</a></li>
+          </ul>
+          <div class="footer-heading" style="margin-top:2rem;">Contact</div>
+          <ul class="footer-links">
+            <li><a href="tel:8322928797">832-292-8797</a></li>
+            <li><a href="https://facebook.com/CarnarEpoxy" target="_blank" rel="noopener noreferrer">Facebook: Carnar Epoxy</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p class="footer-copy">&copy; 2025 <span>Carnar Epoxy</span>. All rights reserved. Owners: Narciso Muro &amp; Carlos Yanes.</p>
+        <p class="footer-copy" style="font-size:0.75rem;">Houston, TX | <a href="tel:8322928797" style="color:var(--gold)">832-292-8797</a></p>
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- ========== JAVASCRIPT ========== -->
+  <script>
+    'use strict';
+
+    // ---- Navbar scroll effect ----
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 60);
+    }, { passive: true });
+
+    // ---- Mobile menu ----
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+
+    hamburger.addEventListener('click', () => {
+      const isOpen = mobileMenu.classList.toggle('open');
+      hamburger.classList.toggle('open', isOpen);
+      document.body.style.overflow = isOpen ? 'hidden' : '';
+    });
+
+    document.querySelectorAll('.mobile-nav-link').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.remove('open');
+        hamburger.classList.remove('open');
+        document.body.style.overflow = '';
+      });
+    });
+
+    // ---- Fade-in on scroll ----
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          observer.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+    // ---- Before/After Comparison Sliders ----
+    function initSlider(id) {
+      const container = document.getElementById(id);
+      if (!container) return;
+
+      // Target either a real <img> or a CSS-gradient <div> for the AFTER layer
+      const afterEl  = container.querySelector('.ci-after, .ci-after-div');
+      const handleEl = container.querySelector('.comp-handle');
+      if (!handleEl) return;
+      let isDragging = false;
+
+      function setPosition(clientX) {
+        const rect = container.getBoundingClientRect();
+        let pct = ((clientX - rect.left) / rect.width) * 100;
+        pct = Math.max(2, Math.min(98, pct));
+        // Move the gold divider line
+        handleEl.style.left = pct + '%';
+        // Clip the AFTER layer: hide everything LEFT of the handle, show only RIGHT
+        if (afterEl) afterEl.style.clipPath = `inset(0 0 0 ${pct}%)`;
+      }
+
+      // Mouse events
+      handleEl.addEventListener('mousedown', e => { isDragging = true; e.preventDefault(); });
+      window.addEventListener('mousemove', e => {
+        if (!isDragging) return;
+        e.preventDefault();
+        setPosition(e.clientX);
+      });
+      window.addEventListener('mouseup', () => { isDragging = false; });
+
+      // Touch events
+      handleEl.addEventListener('touchstart', e => {
+        isDragging = true;
+        e.preventDefault();
+      }, { passive: false });
+      window.addEventListener('touchmove', e => {
+        if (!isDragging) return;
+        setPosition(e.touches[0].clientX);
+      }, { passive: true });
+      window.addEventListener('touchend', () => { isDragging = false; });
+
+      // Click anywhere on the comparison to jump handle there
+      container.addEventListener('mousedown', e => {
+        isDragging = true;
+        setPosition(e.clientX);
+      });
+    }
+
+    ['comp1', 'comp2', 'comp3', 'comp4'].forEach(initSlider);
+
+    // ---- Contact form ----
+    const form        = document.getElementById('contactForm');
+    const formSuccess = document.getElementById('formSuccess');
+
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+
+      const fname = form.fname.value.trim();
+      const phone = form.phone.value.trim();
+      const msg   = form.message.value.trim();
+
+      if (!fname || !phone) {
+        // Simple shake animation on empty required fields
+        [form.fname, form.phone].forEach(field => {
+          if (!field.value.trim()) {
+            field.style.borderColor = '#e03030';
+            field.style.animation   = 'shake 0.4s ease';
+            setTimeout(() => {
+              field.style.borderColor = '';
+              field.style.animation   = '';
+            }, 600);
+          }
+        });
+        return;
+      }
+
+      // Simulate form submission (replace with actual backend/Formspree/etc.)
+      const btn = form.querySelector('.form-submit');
+      btn.disabled = true;
+      btn.textContent = 'Sending…';
+
+      setTimeout(() => {
+        form.style.display     = 'none';
+        formSuccess.style.display = 'block';
+      }, 900);
+    });
+  </script>
+
+  <!-- ========== VIDEO CAROUSEL ========== -->
+  <script>
+    let vidIndex = 0;
+    const vidTotal = 1;
+
+    function vidGoTo(n) {
+      // Pause current
+      const slides = document.querySelectorAll('.vid-slide');
+      const curVideo = slides[vidIndex].querySelector('video');
+      curVideo.pause();
+      slides[vidIndex].classList.remove('playing');
+
+      vidIndex = (n + vidTotal) % vidTotal;
+      document.getElementById('vidTrack').style.transform = `translateX(-${vidIndex * 100}%)`;
+
+      // Update dots & counter
+      document.querySelectorAll('.vid-dot').forEach((d, i) => d.classList.toggle('active', i === vidIndex));
+      document.getElementById('vidCounter').textContent = `${vidIndex + 1} / ${vidTotal}`;
+    }
+
+    function vidNav(dir) { vidGoTo(vidIndex + dir); }
+
+    function toggleVidCarousel(idx) {
+      if (idx !== vidIndex) return;
+      const slide = document.querySelectorAll('.vid-slide')[idx];
+      const video = slide.querySelector('video');
+      if (video.paused) {
+        video.play();
+        slide.classList.add('playing');
+      } else {
+        video.pause();
+        slide.classList.remove('playing');
+      }
+    }
+
+    // Custom controls — play/pause + scrubber
+    const mainVid = document.getElementById('mainVid');
+    const vidSeek = document.getElementById('vidSeek');
+    const vidTime = document.getElementById('vidTime');
+    const vidPlayIcon  = document.getElementById('vidPlayIcon');
+    const vidPauseIcon = document.getElementById('vidPauseIcon');
+    const vidSlide0    = document.querySelector('.vid-slide');
+
+    function fmtTime(s) {
+      const m = Math.floor(s / 60);
+      const sec = Math.floor(s % 60);
+      return `${m}:${sec.toString().padStart(2,'0')}`;
+    }
+
+    function vidTogglePlay() {
+      if (mainVid.paused) {
+        mainVid.play();
+        vidSlide0.classList.add('playing');
+        vidPlayIcon.style.display  = 'none';
+        vidPauseIcon.style.display = '';
+      } else {
+        mainVid.pause();
+        vidSlide0.classList.remove('playing');
+        vidPlayIcon.style.display  = '';
+        vidPauseIcon.style.display = 'none';
+      }
+    }
+
+    // Clicking the video itself also toggles
+    vidSlide0.addEventListener('click', e => {
+      // Don't double-fire if controls bar clicked
+      if (e.target.closest('.vid-controls')) return;
+      vidTogglePlay();
+    });
+
+    mainVid.addEventListener('timeupdate', () => {
+      if (!mainVid.duration) return;
+      const pct = (mainVid.currentTime / mainVid.duration) * 100;
+      vidSeek.value = pct;
+      // Fill color on seek bar
+      vidSeek.style.background = `linear-gradient(to right, var(--gold) ${pct}%, var(--border) ${pct}%)`;
+      vidTime.textContent = `${fmtTime(mainVid.currentTime)} / ${fmtTime(mainVid.duration)}`;
+    });
+
+    mainVid.addEventListener('loadedmetadata', () => {
+      vidTime.textContent = `0:00 / ${fmtTime(mainVid.duration)}`;
+    });
+
+    mainVid.addEventListener('ended', () => {
+      vidSlide0.classList.remove('playing');
+      vidPlayIcon.style.display  = '';
+      vidPauseIcon.style.display = 'none';
+    });
+
+    vidSeek.addEventListener('input', () => {
+      if (!mainVid.duration) return;
+      mainVid.currentTime = (vidSeek.value / 100) * mainVid.duration;
+    });
+
+    // Swipe support
+    (() => {
+      const stage = document.querySelector('.vid-stage');
+      if (!stage) return;
+      let startX = 0;
+      stage.addEventListener('touchstart', e => { startX = e.touches[0].clientX; }, { passive: true });
+      stage.addEventListener('touchend', e => {
+        const diff = startX - e.changedTouches[0].clientX;
+        if (Math.abs(diff) > 40) vidNav(diff > 0 ? 1 : -1);
+      });
+    })();
+  </script>
+
+  <!-- ========== SPANISH / ENGLISH TRANSLATION ========== -->
+  <script>
+    let currentLang = 'en';
+
+    const translations = {
+      en: {
+        'nav-about':'About','nav-services':'Services','nav-gallery':'Gallery','nav-why':'Why Us','nav-contact':'Contact',
+        'hero-badge':"Houston's Premier Epoxy Specialists",
+        'hero-title':'Premium Epoxy<br />Floors That <em>Last</em><br />a Lifetime',
+        'hero-sub':'Transform any surface into a showroom-quality masterpiece. Carnar Epoxy delivers flawless installations with premium materials, expert craftsmanship, and results that speak for themselves.',
+        'hero-cta':'Get a Free Quote','hero-call':'Call Now',
+        'hero-stat1':'Satisfaction Rate','hero-stat2':'Client Reviews','hero-stat3':'Materials Only','hero-stat4':'Estimates',
+        'contact-phone-lbl':'Phone','contact-area-lbl':'Service Area','contact-area-val':'Greater Houston, TX & Surrounding Areas','contact-fb-lbl':'Facebook',
+        'about-label':'About Us','about-title':'Two Craftsmen, One Uncompromising Standard',
+        'about-p1':'Carnar Epoxy was built on a simple belief: every floor deserves to be a masterpiece. Founded by Narciso Muro and Carlos Yanes, we bring hands-on expertise, premium materials, and a relentless attention to detail to every project we touch.',
+        'about-p2':"From residential garages to high-traffic commercial spaces, we treat every job with the same dedication — because your floor isn't just a surface, it's a foundation for everything built on top of it. We don't cut corners. We don't use cheap materials. And we don't leave until the job is done right.",
+        'owner1-role':'Co-Owner & Lead Installer','owner2-role':'Co-Owner & Project Manager',
+        'years-text':'Years of Excellence',
+        'services-label':'What We Do','services-title':'Our Services',
+        'services-sub':"Whether you're upgrading a garage, outfitting a commercial space, or creating a one-of-a-kind custom design — we have the expertise to make it exceptional.",
+        'svc1-name':'Epoxy Garage Floors','svc2-name':'Metallic Epoxy','svc3-name':'Commercial Flooring','svc4-name':'Custom Designs',
+        'colors-label':'Finish Options','colors-title':'Choose Your Color',
+        'colors-sub':"Browse our full range of epoxy flake color blends. Dozens of options to match your style — bring your vision and we'll make it happen.",
+        'colors-note':"Not sure which color fits best? <strong><a href='#contact'>Contact us for samples</a></strong> — we'll bring them to your location.",
+        'gallery-label':'Our Work','gallery-title':'Before & After Transformations',
+        'gallery-sub':'Drag the slider to see the dramatic difference a professional epoxy installation makes. Every project tells a story of transformation.',
+        'gallery-label-1':'Residential Garage Floor','gallery-label-2':'Epoxy Flake — Project 2','gallery-label-3':'Epoxy Flake — Project 3','gallery-label-4':'Epoxy Flake — Project 4',
+        'gallery-note':'📸 More Projects Coming Soon — Send your before & after photos and they\'ll be added directly to the gallery.',
+        'comp-before':'BEFORE','comp-after':'AFTER',
+        'why-label':'Why Carnar Epoxy','why-title':'Built on Quality. Backed by Results.',
+        'why-sub':"We're not just installers — we're craftsmen who care about every detail. From the first surface prep to the final topcoat, our standards don't slip.",
+        'why-cta':'Start Your Project',
+        'why1-title':'Premium Materials','why1-text':'We only use top-grade, industrial-quality epoxy systems — never cheap alternatives.',
+        'why2-title':'Expert Installation','why2-text':'Proper surface preparation and multi-coat application ensures maximum adhesion and longevity.',
+        'why3-title':'Long-Lasting Results','why3-text':'Our floors are built to last decades — resistant to chemicals, abrasion, and heavy traffic.',
+        'why4-title':'Customer First','why4-text':"We communicate clearly, show up on time, and don't leave until you're completely satisfied.",
+        'why5-title':'On-Time Delivery','why5-text':'We respect your schedule. Projects are completed efficiently without sacrificing quality.',
+        'why6-title':'Free Estimates','why6-text':'No pressure, no hidden fees. Get a transparent quote for your project at zero cost.',
+        'reviews-label':'Social Proof','reviews-title':'What Our Clients Say',
+        'reviews-sub':"Real results, real people. Here's what clients have said about working with Carnar Epoxy.",
+        'cta-ready':'Ready to Transform Your Floor?','contact-cta-big':'Call Now for a Free Estimate',
+        'cta-sub':'No pressure. No commitment. Just an honest conversation about your project and what it takes to make your floor exceptional.',
+        'cta-msg':'Send a Message',
+        'contact-label':'Get In Touch','contact-title':"Let's Talk About Your Project",
+        'contact-sub':'Reach out today for a free, no-obligation estimate. We serve the greater Houston area and surrounding communities.',
+        'form-title':'Get Your Free Estimate','form-sub':"We'll get back to you within 24 hours.",
+        'form-fname':'First Name','form-fname-ph':'John','form-lname':'Last Name','form-lname-ph':'Smith',
+        'form-phone':'Phone Number','form-phone-ph':'(832) 555-0000','form-service':'Service Needed',
+        'form-msg':'Project Details','form-msg-ph':'Tell us about your project — square footage, location, timeline, anything helpful…',
+        'form-submit':'Send My Free Quote Request',
+      },
+      es: {
+        'nav-about':'Nosotros','nav-services':'Servicios','nav-gallery':'Galería','nav-why':'¿Por Qué Nosotros?','nav-contact':'Contacto',
+        'hero-badge':'Especialistas en Pisos Epóxicos en Houston',
+        'hero-title':'Pisos Epóxicos<br />Premium Que <em>Duran</em><br />toda la Vida',
+        'hero-sub':'Transforma cualquier superficie en una obra maestra de calidad showroom. Carnar Epoxy ofrece instalaciones impecables con materiales premium, artesanía experta y resultados que hablan por sí solos.',
+        'hero-cta':'Obtén un Estimado Gratis','hero-call':'Llama Ahora',
+        'hero-stat1':'Satisfacción del Cliente','hero-stat2':'Reseñas de Clientes','hero-stat3':'Solo Materiales Premium','hero-stat4':'Estimados',
+        'contact-phone-lbl':'Teléfono','contact-area-lbl':'Área de Servicio','contact-area-val':'Gran Área de Houston, TX y Alrededores','contact-fb-lbl':'Facebook',
+        'about-label':'Sobre Nosotros','about-title':'Dos Artesanos, Un Estándar Inquebrantable',
+        'about-p1':'Carnar Epoxy fue fundada con una creencia simple: cada piso merece ser una obra maestra. Fundada por Narciso Muro y Carlos Yanes, traemos experiencia práctica, materiales premium y atención al detalle en cada proyecto.',
+        'about-p2':'Desde garajes residenciales hasta espacios comerciales de alto tráfico, tratamos cada trabajo con la misma dedicación — porque tu piso no es solo una superficie, es la base de todo lo que se construye encima. No cortamos esquinas. No usamos materiales baratos. Y no nos vamos hasta que el trabajo esté bien hecho.',
+        'owner1-role':'Co-Dueño e Instalador Principal','owner2-role':'Co-Dueño y Gerente de Proyectos',
+        'years-text':'Años de Excelencia',
+        'services-label':'Lo Que Hacemos','services-title':'Nuestros Servicios',
+        'services-sub':'Ya sea que estés mejorando un garaje, equipando un espacio comercial o creando un diseño único — tenemos la experiencia para hacerlo excepcional.',
+        'svc1-name':'Pisos de Garaje Epóxico','svc2-name':'Epóxico Metálico','svc3-name':'Pisos Comerciales','svc4-name':'Diseños Personalizados',
+        'colors-label':'Opciones de Acabado','colors-title':'Elige Tu Color',
+        'colors-sub':'Explora nuestra gama completa de mezclas de escamas epóxicas. Decenas de opciones para combinar con tu estilo — trae tu visión y nosotros la hacemos realidad.',
+        'colors-note':"¿No sabes cuál color elegir? <strong><a href='#contact'>Contáctanos para muestras</a></strong> — las llevamos a tu ubicación.",
+        'gallery-label':'Nuestro Trabajo','gallery-title':'Transformaciones Antes y Después',
+        'gallery-sub':'Arrastra el control deslizante para ver la gran diferencia que hace una instalación profesional. Cada proyecto cuenta una historia de transformación.',
+        'gallery-label-1':'Piso de Garaje Residencial','gallery-label-2':'Escamas Epóxicas — Proyecto 2','gallery-label-3':'Escamas Epóxicas — Proyecto 3','gallery-label-4':'Escamas Epóxicas — Proyecto 4',
+        'gallery-note':'📸 Más Proyectos Próximamente — Envía tus fotos de antes y después y las agregaremos a la galería.',
+        'comp-before':'ANTES','comp-after':'DESPUÉS',
+        'why-label':'Por Qué Carnar Epoxy','why-title':'Construido en Calidad. Respaldado por Resultados.',
+        'why-sub':'No somos solo instaladores — somos artesanos que se preocupan por cada detalle. Desde la preparación hasta la capa final, nuestros estándares no bajan.',
+        'why-cta':'Comienza tu Proyecto',
+        'why1-title':'Materiales Premium','why1-text':'Solo usamos sistemas epóxicos de grado industrial — nunca alternativas baratas.',
+        'why2-title':'Instalación Experta','why2-text':'Preparación de superficie adecuada y aplicación de múltiples capas garantizan máxima adhesión y durabilidad.',
+        'why3-title':'Resultados Duraderos','why3-text':'Nuestros pisos están construidos para durar décadas — resistentes a químicos, abrasión y tráfico pesado.',
+        'why4-title':'El Cliente Primero','why4-text':'Nos comunicamos claramente, llegamos a tiempo y no nos vamos hasta que estés completamente satisfecho.',
+        'why5-title':'Entrega Puntual','why5-text':'Respetamos tu horario. Los proyectos se completan eficientemente sin sacrificar la calidad.',
+        'why6-title':'Estimados Gratis','why6-text':'Sin presión, sin cargos ocultos. Obtén una cotización transparente para tu proyecto sin costo.',
+        'reviews-label':'Opiniones de Clientes','reviews-title':'Lo Que Dicen Nuestros Clientes',
+        'reviews-sub':'Resultados reales, personas reales. Esto es lo que los clientes han dicho sobre trabajar con Carnar Epoxy.',
+        'cta-ready':'¿Listo para Transformar tu Piso?','contact-cta-big':'Llama Ahora para un Estimado Gratis',
+        'cta-sub':'Sin presión. Sin compromiso. Solo una conversación honesta sobre tu proyecto y lo que se necesita para hacer tu piso excepcional.',
+        'cta-msg':'Enviar un Mensaje',
+        'contact-label':'Contáctanos','contact-title':'Hablemos de Tu Proyecto',
+        'contact-sub':'Contáctanos hoy para un estimado gratis sin compromiso. Servimos al área metropolitana de Houston y comunidades cercanas.',
+        'form-title':'Obtén tu Estimado Gratis','form-sub':'Te responderemos dentro de 24 horas.',
+        'form-fname':'Nombre','form-fname-ph':'Juan','form-lname':'Apellido','form-lname-ph':'García',
+        'form-phone':'Número de Teléfono','form-phone-ph':'(832) 555-0000','form-service':'Servicio Necesario',
+        'form-msg':'Detalles del Proyecto','form-msg-ph':'Cuéntanos sobre tu proyecto — metros cuadrados, ubicación, tiempo, cualquier detalle útil…',
+        'form-submit':'Enviar mi Solicitud de Cotización Gratis',
+      }
+    };
+
+    function toggleLang() {
+      currentLang = currentLang === 'en' ? 'es' : 'en';
+      document.getElementById('langLabel').textContent = currentLang === 'en' ? 'ES' : 'EN';
+      applyTranslations();
+    }
+
+    function applyTranslations() {
+      const t = translations[currentLang];
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (t[key] !== undefined) el.textContent = t[key];
+      });
+      document.querySelectorAll('[data-i18n-html]').forEach(el => {
+        const key = el.getAttribute('data-i18n-html');
+        if (t[key] !== undefined) el.innerHTML = t[key];
+      });
+      document.querySelectorAll('[data-i18n-ph]').forEach(el => {
+        const key = el.getAttribute('data-i18n-ph');
+        if (t[key] !== undefined) el.placeholder = t[key];
+      });
+      // BEFORE/AFTER labels
+      document.querySelectorAll('.cl-before').forEach(el => el.textContent = t['comp-before'] || 'BEFORE');
+      document.querySelectorAll('.cl-after').forEach(el => el.textContent = t['comp-after'] || 'AFTER');
+    }
+  </script>
+
+  <style>
+    @keyframes shake {
+      0%, 100% { transform: translateX(0); }
+      20%       { transform: translateX(-6px); }
+      40%       { transform: translateX(6px); }
+      60%       { transform: translateX(-4px); }
+      80%       { transform: translateX(4px); }
+    }
+    select.form-input option {
+      background: #1e1e1e;
+      color: #fff;
+    }
+  </style>
+
+</body>
+</html>
