@@ -376,26 +376,50 @@
     .hero-phone-name { color: var(--gold); font-weight: 700; font-size: 0.78rem; letter-spacing: 0.06em; min-width: 52px; }
     .hero-phone-num { font-weight: 500; }
     .hero-stats {
-      display: flex;
-      gap: 3rem;
-      flex-wrap: wrap;
-      padding-top: 2.5rem;
+      overflow: hidden;
       border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 1.2rem 0;
+      margin-top: 2.5rem;
+      -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+      mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
     }
-    .stat-item {}
+    .ticker-track {
+      display: flex;
+      align-items: center;
+      width: max-content;
+      animation: ticker 18s linear infinite;
+    }
+    .ticker-track:hover { animation-play-state: paused; }
+    @keyframes ticker {
+      0%   { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    .stat-item {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0 2.5rem;
+      white-space: nowrap;
+    }
     .stat-num {
       font-family: 'Playfair Display', serif;
-      font-size: 2.2rem;
+      font-size: 1.6rem;
       font-weight: 700;
       color: var(--gold);
       line-height: 1;
     }
     .stat-label {
-      font-size: 0.8rem;
+      font-size: 0.75rem;
       color: var(--gray);
-      letter-spacing: 0.1em;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
-      margin-top: 0.3rem;
+    }
+    .stat-sep {
+      color: var(--gold);
+      opacity: 0.4;
+      font-size: 0.7rem;
+      flex-shrink: 0;
     }
     /* Floating epoxy orb */
     .hero-orb {
@@ -1688,24 +1712,24 @@
           </div>
         </div>
 
-        <div class="hero-stats">
-          <div class="stat-item">
-            <div class="stat-num">100%</div>
-            <div class="stat-label" data-i18n="hero-stat1">Satisfaction Rate</div>
-          </div>
-          <div class="stat-item">
-            <div class="stat-num">5★</div>
-            <div class="stat-label" data-i18n="hero-stat2">Client Reviews</div>
-          </div>
-          <div class="stat-item">
-            <div class="stat-num">Premium</div>
-            <div class="stat-label" data-i18n="hero-stat3">Materials Only</div>
-          </div>
-          <div class="stat-item">
-            <div class="stat-num">Free</div>
-            <div class="stat-label" data-i18n="hero-stat4">Estimates</div>
-          </div>
-        </div>
+        <div class="hero-stats"><div class="ticker-track">
+          <div class="stat-item"><span class="stat-num">100%</span><span class="stat-label">Satisfaction Rate</span></div>
+          <span class="stat-sep">✦</span>
+          <div class="stat-item"><span class="stat-num">5★</span><span class="stat-label">Client Reviews</span></div>
+          <span class="stat-sep">✦</span>
+          <div class="stat-item"><span class="stat-num">Premium</span><span class="stat-label">Materials Only</span></div>
+          <span class="stat-sep">✦</span>
+          <div class="stat-item"><span class="stat-num">Free</span><span class="stat-label">Estimates</span></div>
+          <span class="stat-sep">✦</span>
+          <div class="stat-item"><span class="stat-num">100%</span><span class="stat-label">Satisfaction Rate</span></div>
+          <span class="stat-sep">✦</span>
+          <div class="stat-item"><span class="stat-num">5★</span><span class="stat-label">Client Reviews</span></div>
+          <span class="stat-sep">✦</span>
+          <div class="stat-item"><span class="stat-num">Premium</span><span class="stat-label">Materials Only</span></div>
+          <span class="stat-sep">✦</span>
+          <div class="stat-item"><span class="stat-num">Free</span><span class="stat-label">Estimates</span></div>
+          <span class="stat-sep">✦</span>
+        </div></div>
       </div>
     </div>
   </section>
