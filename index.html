@@ -29,7 +29,33 @@
       --transition: 0.35s cubic-bezier(0.4,0,0.2,1);
     }
 
-    /* ===================== RESET ===================== */
+    /* ===================== LIGHT MODE ===================== */
+    [data-theme="light"] {
+      --black:      #f5f3ee;
+      --dark:       #ffffff;
+      --card:       #ede9df;
+      --card2:      #e5e0d5;
+      --border:     rgba(160,130,60,0.25);
+      --white:      #111111;
+      --off-white:  #222222;
+      --gray:       #555555;
+      --light-gray: #333333;
+    }
+    .theme-toggle {
+      background: transparent;
+      border: 1.5px solid var(--gold);
+      color: var(--gold);
+      padding: 0.35rem 0.6rem;
+      border-radius: 6px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: all 0.2s;
+      margin-left: 0.5rem;
+      line-height: 1;
+    }
+    .theme-toggle:hover { background: var(--gold); color: var(--black); }
+
+/* ===================== RESET ===================== */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; font-size: 16px; }
     body {
@@ -1631,6 +1657,7 @@
         </ul>
 
         <button class="lang-toggle" id="langToggle" onclick="toggleLang()" title="Switch Language / Cambiar Idioma">🌐 <span id="langLabel">ES</span></button>
+        <button class="theme-toggle" id="themeToggle" onclick="toggleTheme()" title="Toggle light/dark mode">&#9728;&#65039;</button>
 
         <a href="tel:8322928797" class="btn btn-gold nav-cta">
           <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 11a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .18h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
@@ -2673,7 +2700,20 @@
       document.querySelectorAll('.cl-before').forEach(el => el.textContent = t['comp-before'] || 'BEFORE');
       document.querySelectorAll('.cl-after').forEach(el => el.textContent = t['comp-after'] || 'AFTER');
     }
-  </script>
+  
+  function toggleTheme() {
+    const html = document.documentElement;
+    const isLight = html.getAttribute('data-theme') === 'light';
+    html.setAttribute('data-theme', isLight ? 'dark' : 'light');
+    document.getElementById('themeToggle').innerHTML = isLight ? '&#9728;&#65039;' : '&#127769;';
+    localStorage.setItem('ce-theme', isLight ? 'dark' : 'light');
+  }
+  (function() {
+    if (localStorage.getItem('ce-theme') === 'light') {
+      document.documentElement.setAttribute('data-theme', 'light');
+    }
+  })();
+</script>
 
   <style>
     @keyframes shake {
