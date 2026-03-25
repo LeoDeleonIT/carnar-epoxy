@@ -35,12 +35,24 @@
       --dark:       #ffffff;
       --card:       #ede9df;
       --card2:      #e5e0d5;
-      --border:     rgba(160,130,60,0.25);
+      --border:     rgba(160,130,60,0.3);
       --white:      #111111;
-      --off-white:  #222222;
-      --gray:       #555555;
-      --light-gray: #333333;
+      --off-white:  #1a1a1a;
+      --gray:       #444444;
+      --light-gray: #222222;
     }
+    [data-theme="light"] body { background: #f5f3ee; color: #1a1a1a; }
+    [data-theme="light"] #hero { background: linear-gradient(135deg, #1a1008 0%, #2a1f08 50%, #1a1008 100%); }
+    [data-theme="light"] .hero-title,
+    [data-theme="light"] .hero-sub,
+    [data-theme="light"] .hero-phone-name,
+    [data-theme="light"] .hero-phone-num { color: #ffffff !important; }
+    [data-theme="light"] .stat-num { color: var(--gold); }
+    [data-theme="light"] .stat-label { color: #444; }
+    [data-theme="light"] .nav-link { color: #1a1a1a; }
+    [data-theme="light"] nav { background: rgba(245,243,238,0.95); border-bottom: 1px solid rgba(160,130,60,0.2); }
+    [data-theme="light"] .section-title { color: #111; }
+    [data-theme="light"] .section-sub { color: #444; }
     .theme-toggle {
       background: transparent;
       border: 1.5px solid var(--gold);
