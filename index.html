@@ -1640,6 +1640,248 @@
       .footer-bottom { flex-direction: column; text-align: center; }
       .flakes-grid { grid-template-columns: 1fr; }
     }
+
+    /* ===================== VISUALIZER SECTION ===================== */
+    #visualizer {
+      background: var(--dark);
+      padding: 6rem 0;
+      border-top: 1px solid var(--border);
+    }
+    .visualizer-header { text-align: center; margin-bottom: 3rem; }
+    .visualizer-header .section-sub { max-width: 560px; margin: 0 auto; }
+
+    .visualizer-layout {
+      display: grid;
+      grid-template-columns: 300px 1fr;
+      gap: 2.5rem;
+      align-items: start;
+    }
+
+    /* --- Left panel --- */
+    .viz-controls {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+    .viz-controls h4 {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.5rem;
+    }
+
+    /* Color wheel */
+    .wheel-wrap {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    #colorWheel {
+      border-radius: 50%;
+      cursor: crosshair;
+      border: 2px solid var(--border);
+      display: block;
+    }
+    .wheel-brightness {
+      width: 100%;
+      height: 14px;
+      border-radius: 7px;
+      cursor: pointer;
+      border: 1px solid var(--border);
+      outline: none;
+      -webkit-appearance: none;
+      appearance: none;
+    }
+    .wheel-brightness::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 20px; height: 20px;
+      border-radius: 50%;
+      background: var(--gold);
+      border: 2px solid #fff;
+      cursor: pointer;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.5);
+    }
+
+    /* Swatches */
+    .swatch-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 6px;
+    }
+    .swatch {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 1;
+      border-radius: 8px;
+      cursor: pointer;
+      border: 2px solid transparent;
+      transition: border-color 0.2s, transform 0.15s;
+      overflow: hidden;
+    }
+    .swatch:hover { transform: scale(1.1); border-color: var(--gold); }
+    .swatch.active { border-color: var(--gold); box-shadow: 0 0 0 2px var(--gold-dark); }
+    .swatch canvas { width: 100%; height: 100%; display: block; }
+    .swatch-name {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      font-size: 0.5rem;
+      font-weight: 600;
+      text-align: center;
+      padding: 2px 2px;
+      background: rgba(0,0,0,0.7);
+      color: #fff;
+      letter-spacing: 0.02em;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      opacity: 0;
+      transition: opacity 0.2s;
+    }
+    .swatch:hover .swatch-name { opacity: 1; }
+
+    /* --- Right panel --- */
+    .viz-preview {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+    .room-canvas-wrap {
+      position: relative;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      background: #1a1a1a;
+    }
+    #roomCanvas {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+    .room-canvas-wrap::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 16px;
+      box-shadow: inset 0 0 40px rgba(0,0,0,0.4);
+      pointer-events: none;
+    }
+
+    /* AI insight panel */
+    .ai-panel {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 1.5rem;
+    }
+    .ai-panel-header {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+    }
+    .ai-badge {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      background: linear-gradient(135deg, var(--gold-dark), var(--gold));
+      color: #000;
+      padding: 0.25rem 0.6rem;
+      border-radius: 20px;
+      white-space: nowrap;
+    }
+    .ai-color-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      color: var(--white);
+      font-weight: 600;
+    }
+    .ai-body {
+      font-size: 0.92rem;
+      color: var(--off-white);
+      line-height: 1.7;
+      min-height: 72px;
+    }
+    .ai-loading {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      color: var(--gray);
+      font-size: 0.85rem;
+    }
+    .ai-dots { display: flex; gap: 4px; }
+    .ai-dots span {
+      width: 6px; height: 6px;
+      background: var(--gold);
+      border-radius: 50%;
+      animation: dotPulse 1.2s ease-in-out infinite;
+    }
+    .ai-dots span:nth-child(2) { animation-delay: 0.2s; }
+    .ai-dots span:nth-child(3) { animation-delay: 0.4s; }
+    @keyframes dotPulse {
+      0%, 80%, 100% { opacity: 0.3; transform: scale(0.8); }
+      40% { opacity: 1; transform: scale(1.2); }
+    }
+
+    /* API key config */
+    .api-key-row {
+      display: flex;
+      gap: 0.5rem;
+      margin-top: 0.75rem;
+      align-items: center;
+    }
+    .api-key-row input {
+      flex: 1;
+      background: var(--card2);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      color: var(--off-white);
+      font-size: 0.8rem;
+      padding: 0.4rem 0.75rem;
+      font-family: monospace;
+    }
+    .api-key-row button {
+      background: var(--gold);
+      color: #000;
+      font-weight: 700;
+      font-size: 0.75rem;
+      padding: 0.4rem 0.8rem;
+      border-radius: 8px;
+      transition: opacity 0.2s;
+    }
+    .api-key-row button:hover { opacity: 0.85; }
+    .api-key-note {
+      font-size: 0.7rem;
+      color: var(--gray);
+      margin-top: 0.4rem;
+      line-height: 1.5;
+    }
+    details.api-config summary {
+      font-size: 0.75rem;
+      color: var(--gray);
+      cursor: pointer;
+      letter-spacing: 0.05em;
+      user-select: none;
+    }
+    details.api-config summary:hover { color: var(--gold); }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .visualizer-layout { grid-template-columns: 1fr; }
+      .viz-controls { flex-direction: row; flex-wrap: wrap; }
+      .wheel-wrap { flex: 0 0 220px; }
+    }
+    @media (max-width: 600px) {
+      .viz-controls { flex-direction: column; }
+    }
   </style>
 </head>
 
@@ -1913,6 +2155,75 @@
       </div>
       <div class="colors-cta fade-in">
         <p data-i18n-html="colors-note">Not sure which color fits best? <strong><a href="#contact">Contact us for samples</a></strong> — we'll bring them to your location.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== VISUALIZER ========== -->
+  <section id="visualizer">
+    <div class="container">
+      <div class="visualizer-header">
+        <p class="section-label">AI Powered</p>
+        <div class="gold-line center"></div>
+        <h2 class="section-title">Visualize Your Floor</h2>
+        <p class="section-sub">Pick any color or chip blend and see it transform a real garage floor — instantly. Get an AI design consultation for every choice.</p>
+      </div>
+
+      <div class="visualizer-layout">
+
+        <!-- LEFT: Controls -->
+        <div class="viz-controls">
+
+          <!-- Color Wheel -->
+          <div class="wheel-wrap">
+            <h4>Custom Color</h4>
+            <canvas id="colorWheel" width="240" height="240"></canvas>
+            <input type="range" class="wheel-brightness" id="brightSlider" min="0" max="100" value="80" title="Brightness" />
+          </div>
+
+          <!-- Standard Colors -->
+          <div>
+            <h4>Standard Epoxy Colors</h4>
+            <div class="swatch-grid" id="standardSwatches"></div>
+          </div>
+
+          <!-- Chip Blends -->
+          <div>
+            <h4>Decorative Chip Blends</h4>
+            <div class="swatch-grid" id="chipSwatches"></div>
+          </div>
+
+        </div>
+
+        <!-- RIGHT: Preview + AI -->
+        <div class="viz-preview">
+
+          <div class="room-canvas-wrap">
+            <canvas id="roomCanvas" width="800" height="480"></canvas>
+          </div>
+
+          <div class="ai-panel">
+            <div class="ai-panel-header">
+              <span class="ai-badge">✦ AI Design Insight</span>
+              <span class="ai-color-name" id="vizColorName">Select a color to begin</span>
+            </div>
+            <div class="ai-body" id="vizAiText">Choose any color above — from the wheel, a standard swatch, or a decorative chip blend — and our AI will generate a personalized design consultation.</div>
+            <div class="ai-loading" id="vizAiLoading" style="display:none">
+              <div class="ai-dots"><span></span><span></span><span></span></div>
+              Generating design insight&hellip;
+            </div>
+
+            <details class="api-config" style="margin-top:1rem">
+              <summary>&#9881;&#65039; Configure AI (Anthropic API Key)</summary>
+              <div class="api-key-row">
+                <input type="password" id="vizApiKey" placeholder="sk-ant-api03-..." />
+                <button onclick="vizSaveKey()">Save</button>
+              </div>
+              <p class="api-key-note">Your key is stored in <code>localStorage</code> only — never sent anywhere except directly to <code>api.anthropic.com</code>.</p>
+            </details>
+          </div>
+
+        </div>
       </div>
     </div>
   </section>
@@ -2724,6 +3035,544 @@
     if (localStorage.getItem('ce-theme') === 'light') {
       document.documentElement.setAttribute('data-theme', 'light');
     }
+  })();
+
+  /* ===================== FLOOR VISUALIZER ===================== */
+  (function() {
+    'use strict';
+
+    /* ---- Color data ---- */
+    const STANDARD_COLORS = [
+      { name:'Solid Black',    base:'#0d0d0d', chips:['#1a1a1a','#0a0a0a','#222','#111','#333','#080808'] },
+      { name:'Pearl White',    base:'#eeebe3', chips:['#ffffff','#f0ece2','#e8e4dc','#faf8f2','#d8d4cc','#fff'] },
+      { name:'Charcoal Gray',  base:'#4a4a4a', chips:['#333','#555','#666','#222','#888','#3a3a3a'] },
+      { name:'Metallic Silver',base:'#a8b0b8', chips:['#8a9098','#bcc4cc','#ccd4dc','#6a7280','#d4dce4','#fff'] },
+      { name:'Slate Blue',     base:'#4a5878', chips:['#3a4860','#607090','#8090a8','#2a3850','#5060808','#b0c0d8'] },
+      { name:'Earthy Tan',     base:'#b8956a', chips:['#9a7a50','#d4b080','#7a5838','#e8c890','#c4a070','#f0d8a8'] },
+      { name:'Racing Red',     base:'#c01818', chips:['#a00000','#d83030','#ff4040','#800000','#e85050','#fff'] },
+      { name:'Forest Green',   base:'#2a582a', chips:['#1a381a','#3a783a','#4a8a4a','#184018','#508050','#c8e8c8'] },
+    ];
+
+    const CHIP_BLENDS = [
+      { name:'Autumn Brown',  base:'#7a5030', chips:['#5c3a1e','#8b6240','#c4a882','#2a1a0e','#ffffff','#d4b896','#a07848'] },
+      { name:'Cabin Fever',   base:'#c0b8a8', chips:['#c8c0b0','#8a8278','#f0ece4','#504840','#b8b0a0','#ffffff','#686058'] },
+      { name:'Coyote',        base:'#a07850', chips:['#9e7a52','#c4a882','#ffffff','#4a3424','#e8d4bc','#7a5c38','#d0b890'] },
+      { name:'Creekbed',      base:'#8a6040', chips:['#6b4c30','#3a2414','#c4956a','#9e7a52','#ffffff','#a87850','#502c10'] },
+      { name:'Domino',        base:'#505050', chips:['#0a0a0a','#ffffff','#888888','#404040','#cccccc','#1a1a1a','#b0b0b0'] },
+      { name:'Feather Gray',  base:'#d8d4cc', chips:['#e0dcd4','#b8b4ac','#f4f0ec','#888880','#ffffff','#a0a098','#686860'] },
+      { name:'Glacier',       base:'#b0b8bc', chips:['#b0b8bc','#787c80','#e8eced','#4c5458','#ffffff','#909898','#c8d0d4'] },
+      { name:'Gravel',        base:'#808080', chips:['#606060','#a0a0a0','#404040','#c0c0c0','#888888','#505050','#d0d0d0'] },
+      { name:'Nightfall',     base:'#303030', chips:['#1a1a1a','#888888','#ffffff','#444444','#cccccc','#2a2a2a','#aaaaaa'] },
+      { name:'Orbit',         base:'#203880', chips:['#2040a0','#4060c0','#ffffff','#0a0a0a','#8090d0','#1030708','#6080c0'] },
+      { name:'Outback',       base:'#c07830', chips:['#c08040','#e0a060','#f8c880','#8a5a20','#ffffff','#b06030','#f0d080'] },
+      { name:'Safari',        base:'#908050', chips:['#8a7a50','#b0a070','#e8d8a0','#504028','#ffffff','#c0b070','#684818'] },
+      { name:'Shoreline',     base:'#c0a880', chips:['#c8b898','#a09070','#e8dcc8','#605040','#ffffff','#d0c0a0','#785840'] },
+      { name:'Stargazer',     base:'#c8ccd0', chips:['#d0d4d8','#9ca0a8','#eceef0','#606468','#ffffff','#b0b4bc','#484c50'] },
+      { name:'Tidal Wave',    base:'#909898', chips:['#909898','#606868','#d8e0e0','#404848','#ffffff','#788080','#b8c8c8'] },
+    ];
+
+    /* ---- State ---- */
+    let currentColor = null;  // { name, base, chips, isCustom }
+    let brightness = 0.8;
+    let aiDebounce = null;
+
+    /* ---- Utility: seeded random (Mulberry32) ---- */
+    function seeded(seed) {
+      return function() {
+        seed |= 0; seed = seed + 0x6D2B79F5 | 0;
+        let t = Math.imul(seed ^ seed >>> 15, 1 | seed);
+        t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t;
+        return ((t ^ t >>> 14) >>> 0) / 4294967296;
+      };
+    }
+
+    /* ---- Parse hex to {r,g,b} ---- */
+    function hexToRgb(hex) {
+      hex = hex.replace('#','').replace(/^5/, '');  // fix accidental typo
+      if (hex.length === 3) hex = hex.split('').map(x=>x+x).join('');
+      if (hex.length !== 6) return {r:128,g:128,b:128};
+      return { r:parseInt(hex.slice(0,2),16), g:parseInt(hex.slice(2,4),16), b:parseInt(hex.slice(4,6),16) };
+    }
+
+    function rgbToHex(r,g,b) {
+      return '#'+[r,g,b].map(v=>Math.round(Math.max(0,Math.min(255,v))).toString(16).padStart(2,'0')).join('');
+    }
+
+    /* ---- Draw flake texture on a canvas context ---- */
+    function drawFlakes(ctx, x, y, w, h, colorData, rng) {
+      const {base, chips} = colorData;
+      // Base coat
+      ctx.fillStyle = base;
+      ctx.fillRect(x, y, w, h);
+
+      // Flake chips
+      const count = Math.floor(w * h / 28);
+      for (let i = 0; i < count; i++) {
+        const cx = x + rng() * w;
+        const cy = y + rng() * h;
+        const sz = 2 + rng() * 7;
+        const angle = rng() * Math.PI * 2;
+        const verts = 4 + Math.floor(rng() * 4);
+        const col = chips[Math.floor(rng() * chips.length)];
+
+        ctx.beginPath();
+        for (let v = 0; v < verts; v++) {
+          const a = (v / verts) * Math.PI * 2 + angle;
+          const r = sz * (0.45 + rng() * 0.55);
+          const px = cx + Math.cos(a) * r, py = cy + Math.sin(a) * r;
+          v === 0 ? ctx.moveTo(px, py) : ctx.lineTo(px, py);
+        }
+        ctx.closePath();
+        const rgb = hexToRgb(col);
+        ctx.fillStyle = `rgba(${rgb.r},${rgb.g},${rgb.b},${0.65 + rng() * 0.35})`;
+        ctx.fill();
+      }
+
+      // Subtle gloss overlay
+      const gloss = ctx.createLinearGradient(x, y, x, y+h);
+      gloss.addColorStop(0, 'rgba(255,255,255,0.06)');
+      gloss.addColorStop(0.4, 'rgba(255,255,255,0.02)');
+      gloss.addColorStop(1, 'rgba(0,0,0,0.08)');
+      ctx.fillStyle = gloss;
+      ctx.fillRect(x, y, w, h);
+    }
+
+    /* ---- Build swatch mini-canvas ---- */
+    function makeSwatchCanvas(colorData) {
+      const c = document.createElement('canvas');
+      c.width = c.height = 48;
+      const ctx = c.getContext('2d');
+      const rng = seeded(colorData.name.charCodeAt(0) * 137 + colorData.name.length * 31);
+      drawFlakes(ctx, 0, 0, 48, 48, colorData, rng);
+      return c;
+    }
+
+    /* ---- Draw room preview ---- */
+    function drawRoom(colorData) {
+      const canvas = document.getElementById('roomCanvas');
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      const W = canvas.width, H = canvas.height;
+      ctx.clearRect(0, 0, W, H);
+
+      // Sky / exterior visible through door
+      const skyGrad = ctx.createLinearGradient(0,0,0,H*0.12);
+      skyGrad.addColorStop(0,'#7a9ec8');
+      skyGrad.addColorStop(1,'#a8c8e8');
+      ctx.fillStyle = skyGrad;
+      ctx.fillRect(0, 0, W, H*0.12);
+
+      // Garage door opening (arch of sky at top)
+      ctx.save();
+      ctx.beginPath();
+      ctx.rect(W*0.15, 0, W*0.7, H*0.44);
+      ctx.clip();
+      // Driveway outside
+      const driveGrad = ctx.createLinearGradient(0,H*0.1,0,H*0.44);
+      driveGrad.addColorStop(0,'#a0a0a0');
+      driveGrad.addColorStop(1,'#888888');
+      ctx.fillStyle = driveGrad;
+      ctx.fillRect(0,0,W,H*0.44);
+      ctx.restore();
+
+      // Ceiling
+      ctx.fillStyle = '#2e2e2e';
+      ctx.fillRect(0, H*0.12, W, H*0.05);
+
+      // Back wall
+      const wallGrad = ctx.createLinearGradient(0, H*0.17, 0, H*0.52);
+      wallGrad.addColorStop(0,'#3a3a3a');
+      wallGrad.addColorStop(1,'#2a2a2a');
+      ctx.fillStyle = wallGrad;
+      ctx.fillRect(0, H*0.17, W, H*0.35);
+
+      // Left side wall
+      ctx.save();
+      ctx.beginPath();
+      ctx.moveTo(0, H*0.12);
+      ctx.lineTo(W*0.15, H*0.12);
+      ctx.lineTo(W*0.15, H*0.52);
+      ctx.lineTo(0, H*0.52);
+      ctx.closePath();
+      ctx.fillStyle = '#1e1e1e';
+      ctx.fill();
+      ctx.restore();
+
+      // Right side wall
+      ctx.save();
+      ctx.beginPath();
+      ctx.moveTo(W, H*0.12);
+      ctx.lineTo(W*0.85, H*0.12);
+      ctx.lineTo(W*0.85, H*0.52);
+      ctx.lineTo(W, H*0.52);
+      ctx.closePath();
+      ctx.fillStyle = '#1e1e1e';
+      ctx.fill();
+      ctx.restore();
+
+      // Baseboard
+      ctx.fillStyle = '#555';
+      ctx.fillRect(0, H*0.50, W, H*0.025);
+
+      // Garage door frame
+      ctx.strokeStyle = '#555';
+      ctx.lineWidth = 6;
+      ctx.beginPath();
+      ctx.rect(W*0.15, H*0.12, W*0.7, H*0.38);
+      ctx.stroke();
+
+      // Garage door panels (when visible)
+      ctx.strokeStyle = 'rgba(80,80,80,0.6)';
+      ctx.lineWidth = 2;
+      for (let i = 1; i < 4; i++) {
+        const py = H*0.12 + (H*0.38 / 4) * i;
+        ctx.beginPath(); ctx.moveTo(W*0.15, py); ctx.lineTo(W*0.85, py); ctx.stroke();
+      }
+      ctx.beginPath(); ctx.moveTo(W*0.5, H*0.12); ctx.lineTo(W*0.5, H*0.5); ctx.stroke();
+
+      // Overhead lights
+      const lightPositions = [0.25, 0.75];
+      lightPositions.forEach(lx => {
+        ctx.fillStyle = '#666';
+        ctx.fillRect(W*lx - 40, H*0.12, 80, 12);
+        const lightGlow = ctx.createRadialGradient(W*lx, H*0.19, 0, W*lx, H*0.19, 180);
+        lightGlow.addColorStop(0,'rgba(255,240,200,0.18)');
+        lightGlow.addColorStop(1,'rgba(255,240,200,0)');
+        ctx.fillStyle = lightGlow;
+        ctx.fillRect(0, H*0.12, W, H*0.5);
+      });
+
+      // === FLOOR (perspective trapezoid) ===
+      const floorTopY = H * 0.525;
+      const floorTopL = W * 0.08,  floorTopR = W * 0.92;
+      const floorBotL = 0,         floorBotR = W;
+      const floorBotY = H;
+
+      // Clipping path for floor
+      ctx.save();
+      ctx.beginPath();
+      ctx.moveTo(floorTopL, floorTopY);
+      ctx.lineTo(floorTopR, floorTopY);
+      ctx.lineTo(floorBotR, floorBotY);
+      ctx.lineTo(floorBotL, floorBotY);
+      ctx.closePath();
+      ctx.clip();
+
+      // Offscreen flake texture - we draw the full floor area then let perspective clipping shape it
+      const floorW = W, floorH = H - floorTopY;
+      const rng = seeded((colorData.name.split('').reduce((a,c)=>a+c.charCodeAt(0),0) * 2654435761) >>> 0);
+      drawFlakes(ctx, 0, floorTopY, floorW, floorH, colorData, rng);
+
+      // Perspective grid (subtle)
+      const vpX = W / 2, vpY = floorTopY;
+      ctx.strokeStyle = 'rgba(255,255,255,0.06)';
+      ctx.lineWidth = 1;
+      const gridCols = 6;
+      for (let i = 0; i <= gridCols; i++) {
+        const t = i / gridCols;
+        const bx = floorBotL + t * (floorBotR - floorBotL);
+        ctx.beginPath(); ctx.moveTo(vpX, vpY); ctx.lineTo(bx, H); ctx.stroke();
+      }
+      const gridRows = 4;
+      for (let j = 1; j <= gridRows; j++) {
+        const t = j / (gridRows + 1);
+        const y = floorTopY + t * (H - floorTopY);
+        const lx = floorTopL + (floorBotL - floorTopL) * t / 1;
+        const rx = floorTopR + (floorBotR - floorTopR) * t / 1;
+        const pct = t;
+        const ly = floorTopY + pct * (H - floorTopY);
+        const interp = (v1, v2, p) => v1 + (v2 - v1) * p;
+        const lxp = interp(floorTopL, floorBotL, pct);
+        const rxp = interp(floorTopR, floorBotR, pct);
+        ctx.beginPath(); ctx.moveTo(lxp, ly); ctx.lineTo(rxp, ly); ctx.stroke();
+      }
+
+      // Gloss reflection stripe on floor
+      const reflGrad = ctx.createLinearGradient(0, floorTopY, 0, floorTopY + floorH * 0.35);
+      reflGrad.addColorStop(0, 'rgba(255,255,255,0.12)');
+      reflGrad.addColorStop(1, 'rgba(255,255,255,0)');
+      ctx.fillStyle = reflGrad;
+      ctx.fillRect(0, floorTopY, W, floorH * 0.35);
+
+      ctx.restore();
+
+      // Car silhouette overlay (subtle)
+      drawCarSilhouette(ctx, W, H, floorTopY);
+
+      // Floor edge shadow
+      ctx.fillStyle = 'rgba(0,0,0,0.35)';
+      ctx.fillRect(0, floorTopY, W, 8);
+    }
+
+    function drawCarSilhouette(ctx, W, H, floorY) {
+      ctx.save();
+      ctx.globalAlpha = 0.25;
+      const carX = W * 0.15, carY = floorY + (H - floorY) * 0.08;
+      const carW = W * 0.55, carH = (H - floorY) * 0.8;
+      // Simplified car body
+      ctx.fillStyle = '#1a1a1a';
+      // Bottom body
+      ctx.beginPath();
+      ctx.roundRect(carX, carY + carH*0.45, carW, carH*0.4, 8);
+      ctx.fill();
+      // Cabin
+      ctx.beginPath();
+      ctx.moveTo(carX + carW*0.15, carY + carH*0.45);
+      ctx.lineTo(carX + carW*0.22, carY + carH*0.15);
+      ctx.lineTo(carX + carW*0.75, carY + carH*0.15);
+      ctx.lineTo(carX + carW*0.88, carY + carH*0.45);
+      ctx.closePath();
+      ctx.fill();
+      // Wheels
+      [0.22, 0.78].forEach(wx => {
+        ctx.beginPath();
+        ctx.arc(carX + carW*wx, carY + carH*0.85, carH*0.16, 0, Math.PI*2);
+        ctx.fillStyle = '#111';
+        ctx.fill();
+        ctx.beginPath();
+        ctx.arc(carX + carW*wx, carY + carH*0.85, carH*0.09, 0, Math.PI*2);
+        ctx.fillStyle = '#3a3a3a';
+        ctx.fill();
+      });
+      ctx.restore();
+    }
+
+    /* ---- Color wheel ---- */
+    function drawWheel() {
+      const canvas = document.getElementById('colorWheel');
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      const S = canvas.width;
+      const cx = S/2, cy = S/2, r = S/2 - 3;
+
+      ctx.clearRect(0,0,S,S);
+
+      // Hue ring
+      for (let angle = 0; angle < 360; angle += 1) {
+        const startA = (angle - 1) * Math.PI / 180;
+        const endA   = (angle + 1) * Math.PI / 180;
+        const grad = ctx.createRadialGradient(cx,cy, r*0.35, cx,cy, r);
+        grad.addColorStop(0, `hsla(${angle},0%,${brightness*100}%,1)`);
+        grad.addColorStop(1, `hsla(${angle},100%,${brightness*50}%,1)`);
+        ctx.beginPath();
+        ctx.moveTo(cx, cy);
+        ctx.arc(cx, cy, r, startA, endA);
+        ctx.closePath();
+        ctx.fillStyle = grad;
+        ctx.fill();
+      }
+
+      // Center circle (brightness indicator)
+      ctx.beginPath();
+      ctx.arc(cx, cy, r*0.35, 0, Math.PI*2);
+      ctx.fillStyle = `hsl(0,0%,${brightness*100}%)`;
+      ctx.fill();
+      ctx.strokeStyle = 'rgba(255,255,255,0.15)';
+      ctx.lineWidth = 1.5;
+      ctx.stroke();
+    }
+
+    function wheelPickColor(e) {
+      const canvas = document.getElementById('colorWheel');
+      const rect = canvas.getBoundingClientRect();
+      const scaleX = canvas.width / rect.width;
+      const scaleY = canvas.height / rect.height;
+      const x = (e.clientX - rect.left) * scaleX - canvas.width/2;
+      const y = (e.clientY - rect.top) * scaleY - canvas.height/2;
+      const r = Math.sqrt(x*x + y*y);
+      const maxR = canvas.width/2 - 3;
+      if (r > maxR) return;
+
+      const hue = ((Math.atan2(y, x) * 180 / Math.PI) + 360) % 360;
+      const sat = Math.min(r / (maxR * 0.65), 1) * 100;
+      const light = brightness * 50;
+
+      // Convert HSL to hex
+      const h = hue/360, s = sat/100, l = light/100;
+      const hue2rgb = (p,q,t) => {
+        if(t<0)t+=1; if(t>1)t-=1;
+        if(t<1/6)return p+(q-p)*6*t;
+        if(t<1/2)return q;
+        if(t<2/3)return p+(q-p)*(2/3-t)*6;
+        return p;
+      };
+      let r2,g2,b2;
+      if(s===0){r2=g2=b2=l;}else{
+        const q=l<0.5?l*(1+s):l+s-l*s, p=2*l-q;
+        r2=hue2rgb(p,q,h+1/3); g2=hue2rgb(p,q,h); b2=hue2rgb(p,q,h-1/3);
+      }
+      const hex = rgbToHex(r2*255, g2*255, b2*255);
+
+      // Build chips array (variations on the chosen hue)
+      const chips = [];
+      for(let i=0;i<7;i++){
+        const vary = (brightness + (i-3)*0.12);
+        const lv = Math.max(0.05, Math.min(0.95, vary*0.5));
+        const sv = Math.max(0, Math.min(1, sat/100 + (i-3)*0.08));
+        const q2 = lv<0.5?lv*(1+sv):lv+sv-lv*sv, p2=2*lv-q2;
+        const rv=hue2rgb(p2,q2,h+1/3), gv=hue2rgb(p2,q2,h), bv=hue2rgb(p2,q2,h-1/3);
+        chips.push(rgbToHex(rv*255,gv*255,bv*255));
+      }
+      // Add white and black for contrast flakes
+      chips.push('#ffffff'); chips.push('#0a0a0a');
+
+      selectColor({ name:`Custom (${hex.toUpperCase()})`, base:hex, chips, isCustom:true }, null);
+    }
+
+    /* ---- Select a color ---- */
+    function selectColor(colorData, swatchEl) {
+      currentColor = colorData;
+
+      // Update active swatch
+      document.querySelectorAll('.swatch').forEach(s => s.classList.remove('active'));
+      if (swatchEl) swatchEl.classList.add('active');
+
+      // Update color name
+      const nameEl = document.getElementById('vizColorName');
+      if (nameEl) nameEl.textContent = colorData.name;
+
+      // Redraw room
+      drawRoom(colorData);
+
+      // Trigger AI (debounced)
+      clearTimeout(aiDebounce);
+      aiDebounce = setTimeout(() => fetchAiInsight(colorData), 600);
+    }
+
+    /* ---- Fetch AI insight ---- */
+    async function fetchAiInsight(colorData) {
+      const apiKey = localStorage.getItem('ce-anthropic-key') || '';
+      const textEl = document.getElementById('vizAiText');
+      const loadEl = document.getElementById('vizAiLoading');
+      if (!textEl || !loadEl) return;
+
+      if (!apiKey || !apiKey.startsWith('sk-ant-')) {
+        textEl.style.display = 'block';
+        loadEl.style.display = 'none';
+        textEl.textContent = `Selected: ${colorData.name}. Add your Anthropic API key below to get AI-powered design insights for this color.`;
+        return;
+      }
+
+      textEl.style.display = 'none';
+      loadEl.style.display = 'flex';
+
+      try {
+        const resp = await fetch('https://api.anthropic.com/v1/messages', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'x-api-key': apiKey,
+            'anthropic-version': '2023-06-01',
+            'anthropic-dangerous-direct-browser-access': 'true',
+          },
+          body: JSON.stringify({
+            model: 'claude-opus-4-6',
+            max_tokens: 200,
+            messages: [{
+              role: 'user',
+              content: `You are a premium epoxy flooring design consultant. In 2-3 sentences, give a vivid, sales-style description of the "${colorData.name}" epoxy floor color for a garage or residential space. Mention how it looks in the space, what styles or home aesthetics it pairs with, and why it's an excellent choice for epoxy flooring. Be enthusiastic but professional.`
+            }]
+          })
+        });
+
+        if (!resp.ok) {
+          const err = await resp.json().catch(()=>({error:{message:resp.statusText}}));
+          throw new Error(err?.error?.message || `HTTP ${resp.status}`);
+        }
+
+        const data = await resp.json();
+        const text = data.content?.[0]?.text || 'Unable to generate insight.';
+        textEl.textContent = text;
+        textEl.style.display = 'block';
+        loadEl.style.display = 'none';
+      } catch(err) {
+        textEl.textContent = `Insight unavailable: ${err.message}`;
+        textEl.style.display = 'block';
+        loadEl.style.display = 'none';
+      }
+    }
+
+    /* ---- Save API key ---- */
+    window.vizSaveKey = function() {
+      const k = document.getElementById('vizApiKey')?.value?.trim();
+      if (k) {
+        localStorage.setItem('ce-anthropic-key', k);
+        if (currentColor) fetchAiInsight(currentColor);
+        document.querySelector('.api-config').removeAttribute('open');
+      }
+    };
+
+    /* ---- Build swatches ---- */
+    function buildSwatches(containerId, colorArray) {
+      const container = document.getElementById(containerId);
+      if (!container) return;
+      colorArray.forEach(cd => {
+        const div = document.createElement('div');
+        div.className = 'swatch';
+        div.title = cd.name;
+
+        const c = makeSwatchCanvas(cd);
+        div.appendChild(c);
+
+        const label = document.createElement('span');
+        label.className = 'swatch-name';
+        label.textContent = cd.name;
+        div.appendChild(label);
+
+        div.addEventListener('click', () => selectColor(cd, div));
+        container.appendChild(div);
+      });
+    }
+
+    /* ---- Initialize ---- */
+    function init() {
+      drawWheel();
+      buildSwatches('standardSwatches', STANDARD_COLORS);
+      buildSwatches('chipSwatches', CHIP_BLENDS);
+      drawRoom(STANDARD_COLORS[2]); // Default: Charcoal Gray
+      selectColor(STANDARD_COLORS[2], null);
+
+      // Color wheel interactions
+      const wheel = document.getElementById('colorWheel');
+      if (wheel) {
+        let dragging = false;
+        wheel.addEventListener('mousedown', e => { dragging = true; wheelPickColor(e); });
+        wheel.addEventListener('mousemove', e => { if (dragging) wheelPickColor(e); });
+        window.addEventListener('mouseup', () => { dragging = false; });
+        wheel.addEventListener('touchstart', e => { e.preventDefault(); wheelPickColor(e.touches[0]); }, {passive:false});
+        wheel.addEventListener('touchmove', e => { e.preventDefault(); wheelPickColor(e.touches[0]); }, {passive:false});
+      }
+
+      // Brightness slider
+      const slider = document.getElementById('brightSlider');
+      if (slider) {
+        // Style the slider track with gradient
+        const updateSliderBg = (v) => {
+          slider.style.background = `linear-gradient(to right, #000 0%, #c9a84c ${v}%, #fff 100%)`;
+        };
+        updateSliderBg(slider.value);
+        slider.addEventListener('input', function() {
+          brightness = this.value / 100;
+          updateSliderBg(this.value);
+          drawWheel();
+        });
+      }
+
+      // Pre-fill API key if saved
+      const savedKey = localStorage.getItem('ce-anthropic-key');
+      if (savedKey) {
+        const keyInput = document.getElementById('vizApiKey');
+        if (keyInput) keyInput.value = savedKey;
+      }
+    }
+
+    // Run after DOM ready
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', init);
+    } else {
+      init();
+    }
+
   })();
 </script>
 
