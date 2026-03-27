@@ -1632,15 +1632,15 @@
       .contact-grid { grid-template-columns: 1fr; }
       .about-visual { order: -1; }
       .experience-badge {
-        position: relative;
-        top: auto;
-        left: auto;
+        position: absolute;
+        top: 55%;
+        left: 50%;
+        transform: translate(-50%, -50%);
         bottom: auto;
         right: auto;
-        transform: none;
-        width: 90px;
-        height: 90px;
-        margin: 0 auto 1rem auto;
+        width: 85px;
+        height: 85px;
+        z-index: 10;
       }
       .experience-badge .num { font-size: 1.6rem; }
       .experience-badge .text { font-size: 0.48rem; }
