@@ -1632,13 +1632,15 @@
       .contact-grid { grid-template-columns: 1fr; }
       .about-visual { order: -1; }
       .experience-badge {
-        top: -15px;
-        left: 50%;
-        transform: translateX(-50%);
+        position: relative;
+        top: auto;
+        left: auto;
         bottom: auto;
         right: auto;
+        transform: none;
         width: 90px;
         height: 90px;
+        margin: 0 auto 1rem auto;
       }
       .experience-badge .num { font-size: 1.6rem; }
       .experience-badge .text { font-size: 0.48rem; }
@@ -1650,7 +1652,16 @@
     }
 
     @media (max-width: 600px) {
-      .hero-stats { gap: 2rem; }
+      .hero-stats {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+        padding: 1rem;
+      }
+      .stat-sep { display: none; }
+      .stat-item { justify-content: center; flex-direction: column; align-items: center; text-align: center; gap: 0.3rem; }
+      .stat-num { font-size: 1.3rem; }
+      .stat-label { font-size: 0.65rem; }
       .services-grid { grid-template-columns: 1fr; }
       .owners-grid { grid-template-columns: 1fr; }
       .why-features { grid-template-columns: 1fr; }
