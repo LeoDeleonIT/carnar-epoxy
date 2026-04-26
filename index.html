@@ -1874,6 +1874,18 @@
       height: 100%;
       z-index: 1;
     }
+    /* Mobile: darker overlay + bottom-anchored image so the floor reads as texture, not clutter */
+    @media (max-width: 760px) {
+      #hero.v2 .hero-bg {
+        background: url('after1.jpeg') center bottom/cover no-repeat !important;
+        filter: brightness(0.35) saturate(1.1);
+      }
+      #hero.v2 .hero-bg::after {
+        background:
+          linear-gradient(180deg, rgba(8,8,8,0.97) 0%, rgba(8,8,8,0.85) 40%, rgba(8,8,8,0.7) 100%),
+          radial-gradient(ellipse 70% 50% at 50% 90%, rgba(201,168,76,0.15), transparent 70%);
+      }
+    }
     .v2-hero-inner {
       position: relative; z-index: 2;
       display: grid;
