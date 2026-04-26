@@ -12,6 +12,32 @@
   <meta property="og:type" content="website" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:image" content="https://carnarepoxy.com/logo.jpeg" />
+
+  <!-- LocalBusiness structured data for Google -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Carnar Epoxy",
+    "image": "https://carnarepoxy.com/logo.jpeg",
+    "url": "https://carnarepoxy.com",
+    "telephone": "+18322928797",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Houston",
+      "addressRegion": "TX",
+      "addressCountry": "US"
+    },
+    "areaServed": "Greater Houston Area",
+    "priceRange": "$$",
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "5.0",
+      "reviewCount": "23"
+    }
+  }
+  </script>
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
@@ -1830,6 +1856,143 @@
     @media (max-width: 600px) {
       .viz-controls { flex-direction: column; }
     }
+
+    /* ===================== V2 UPGRADES (hero/services/quote/mobile-cta) ===================== */
+    #hero.v2 { padding-top: 120px; padding-bottom: 3rem; }
+    #hero.v2 .hero-bg {
+      background: url('expoxy%20photos/comp1-after.jpeg') center/cover no-repeat !important;
+      filter: brightness(0.38) saturate(1.15);
+      transform: scale(1.05);
+    }
+    #hero.v2 .hero-bg::before { display: none; }
+    #hero.v2 .hero-bg::after {
+      content: '';
+      position: absolute; inset: 0;
+      background:
+        linear-gradient(100deg, rgba(8,8,8,0.96) 0%, rgba(8,8,8,0.75) 45%, rgba(8,8,8,0.55) 100%),
+        radial-gradient(ellipse 50% 80% at 90% 50%, rgba(201,168,76,0.12), transparent 70%);
+      height: 100%;
+      z-index: 1;
+    }
+    .v2-hero-inner {
+      position: relative; z-index: 2;
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 4rem; align-items: center; width: 100%;
+    }
+    @media (max-width: 960px) { .v2-hero-inner { grid-template-columns: 1fr; gap: 2.5rem; } }
+    .v2-trust-row { display: flex; align-items: center; gap: 1.25rem; margin: 0 0 2.25rem; flex-wrap: wrap; }
+    .v2-trust-item { display: flex; align-items: center; gap: 0.55rem; }
+    .v2-trust-stars { color: var(--gold); font-size: 1.05rem; letter-spacing: 0.05em; }
+    .v2-trust-label { font-size: 0.85rem; color: var(--light-gray); font-weight: 500; }
+    .v2-trust-label strong { color: var(--white); font-weight: 700; }
+    .v2-trust-badge {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      padding: 0.4rem 0.8rem;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 6px; font-size: 0.78rem; color: var(--off-white);
+    }
+    .v2-trust-badge svg { color: var(--gold); }
+    .v2-quote-card {
+      background: rgba(20,20,20,0.88);
+      backdrop-filter: blur(20px);
+      border: 1px solid var(--border);
+      border-radius: 16px; padding: 2rem;
+      box-shadow: 0 40px 80px rgba(0,0,0,0.6), 0 0 0 1px rgba(201,168,76,0.08);
+    }
+    .v2-quote-header { text-align: center; margin-bottom: 1.5rem; }
+    .v2-quote-label { display: inline-block; font-size: 0.7rem; font-weight: 700; color: var(--gold); letter-spacing: 0.25em; text-transform: uppercase; margin-bottom: 0.6rem; }
+    .v2-quote-title { font-family: 'Playfair Display', serif; font-size: 1.55rem; font-weight: 700; color: var(--white); margin-bottom: 0.4rem; line-height: 1.2; }
+    .v2-quote-sub { font-size: 0.88rem; color: var(--gray); }
+    .v2-form-grid { display: grid; gap: 0.85rem; }
+    .v2-form-row-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 0.85rem; }
+    @media (max-width: 500px) { .v2-form-row-2 { grid-template-columns: 1fr; } }
+    .v2-quote-card input, .v2-quote-card select {
+      width: 100%; padding: 0.85rem 1rem;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 8px; color: var(--white);
+      font-family: inherit; font-size: 0.92rem;
+      transition: var(--transition);
+    }
+    .v2-quote-card input:focus, .v2-quote-card select:focus {
+      outline: none; border-color: var(--gold);
+      background: rgba(201,168,76,0.05);
+      box-shadow: 0 0 0 3px rgba(201,168,76,0.15);
+    }
+    .v2-quote-card input::placeholder { color: var(--gray); }
+    .v2-quote-card select { cursor: pointer; }
+    .v2-quote-submit {
+      width: 100%; padding: 1.05rem;
+      background: linear-gradient(135deg, var(--gold), var(--gold-light));
+      color: #000; font-weight: 800; font-size: 0.95rem;
+      letter-spacing: 0.05em; text-transform: uppercase;
+      border-radius: 8px; transition: var(--transition);
+      margin-top: 0.4rem; cursor: pointer; border: none; font-family: inherit;
+    }
+    .v2-quote-submit:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(201,168,76,0.4); }
+    .v2-quote-footer { text-align: center; margin-top: 1rem; font-size: 0.78rem; color: var(--gray); }
+    .v2-quote-footer strong { color: var(--gold-light); }
+    .v2-quote-success { text-align: center; padding: 2.5rem 1rem; display: none; }
+    .v2-quote-success.show { display: block; }
+    .v2-quote-success-icon {
+      width: 60px; height: 60px; border-radius: 50%;
+      background: rgba(34,197,94,0.15); border: 2px solid #22c55e;
+      display: inline-flex; align-items: center; justify-content: center;
+      margin-bottom: 1rem; color: #22c55e;
+    }
+    #services .v2-services-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem;
+    }
+    .v2-service-card {
+      position: relative; border-radius: 12px; overflow: hidden;
+      aspect-ratio: 4/5; cursor: pointer;
+      transition: var(--transition); border: 1px solid var(--border);
+      display: block; text-decoration: none;
+    }
+    .v2-service-card:hover { transform: translateY(-6px); box-shadow: 0 20px 50px rgba(0,0,0,0.6); }
+    .v2-service-card img {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%; object-fit: cover;
+      transition: transform 0.8s ease;
+    }
+    .v2-service-card:hover img { transform: scale(1.08); }
+    .v2-service-card::after {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(180deg, transparent 40%, rgba(8,8,8,0.95) 100%);
+    }
+    .v2-service-content { position: absolute; bottom: 0; left: 0; right: 0; padding: 1.75rem; z-index: 2; }
+    .v2-service-tag { display: inline-block; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.2em; color: var(--gold); text-transform: uppercase; margin-bottom: 0.5rem; }
+    .v2-service-title { font-family: 'Playfair Display', serif; font-size: 1.45rem; font-weight: 700; color: var(--white); margin-bottom: 0.4rem; line-height: 1.2; }
+    .v2-service-desc { font-size: 0.85rem; color: var(--light-gray); line-height: 1.55; }
+    .v2-service-arrow {
+      position: absolute; top: 1.1rem; right: 1.1rem;
+      width: 36px; height: 36px; border-radius: 50%;
+      background: rgba(201,168,76,0.2); border: 1px solid var(--gold);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--gold); transition: var(--transition); z-index: 3;
+    }
+    .v2-service-card:hover .v2-service-arrow { background: var(--gold); color: #000; transform: rotate(-45deg); }
+    .v2-mobile-cta {
+      position: fixed; bottom: 0; left: 0; right: 0;
+      background: rgba(8,8,8,0.96); backdrop-filter: blur(14px);
+      border-top: 1px solid var(--border);
+      padding: 0.75rem 1rem; display: none; gap: 0.75rem;
+      z-index: 999; box-shadow: 0 -10px 40px rgba(0,0,0,0.6);
+    }
+    .v2-mobile-cta a {
+      flex: 1; display: inline-flex; align-items: center; justify-content: center;
+      gap: 0.5rem; padding: 0.85rem 1rem; border-radius: 8px;
+      font-weight: 700; font-size: 0.9rem; letter-spacing: 0.03em; text-decoration: none;
+    }
+    .v2-mobile-cta-call { background: linear-gradient(135deg, var(--gold), var(--gold-light)); color: #000; }
+    .v2-mobile-cta-quote { background: rgba(255,255,255,0.08); color: var(--white); border: 1px solid rgba(255,255,255,0.15); }
+    @media (max-width: 760px) {
+      .v2-mobile-cta { display: flex; }
+      body { padding-bottom: 80px; }
+      .sticky-phone { display: none !important; }
+    }
   </style>
 </head>
 
@@ -1883,64 +2046,130 @@
     <a href="tel:8322928797" class="btn btn-gold">Call 832-292-8797</a>
   </div>
 
-  <!-- ========== HERO ========== -->
-  <section id="hero">
+  <!-- ========== HERO (v2 — photo bg + quote form + trust badges) ========== -->
+  <section id="hero" class="v2">
     <div class="hero-bg"></div>
-    <div class="hero-orb"></div>
-
-    <!-- Big logo in the right empty space -->
-    <div class="hero-logo-visual">
-      <img src="logo.jpeg" alt="Carnar Epoxy" />
-    </div>
 
     <div class="container">
-      <div class="hero-content">
-        <div class="hero-badge" data-i18n="hero-badge">Houston's Premier Epoxy Specialists</div>
+      <div class="v2-hero-inner">
+        <div class="hero-content">
+          <div class="hero-badge" data-i18n="hero-badge">Houston's Premier Epoxy Specialists</div>
 
-        <h1 class="hero-title" data-i18n-html="hero-title">
-          Premium Epoxy<br />
-          Floors That <em>Last</em><br />
-          a Lifetime
-        </h1>
+          <h1 class="hero-title" data-i18n-html="hero-title">
+            Premium Epoxy<br />
+            Floors That <em>Last</em><br />
+            a Lifetime
+          </h1>
 
-        <p class="hero-sub" data-i18n="hero-sub">
-          Transform any surface into a showroom-quality masterpiece. Carnar Epoxy delivers
-          flawless installations with premium materials, expert craftsmanship, and results that
-          speak for themselves.
-        </p>
+          <p class="hero-sub" data-i18n="hero-sub">
+            Transform any surface into a showroom-quality masterpiece. Carnar Epoxy delivers
+            flawless installations with premium materials, expert craftsmanship, and results that
+            speak for themselves.
+          </p>
 
-        <div class="hero-actions">
-          <a href="#contact" class="btn btn-gold" style="font-size:1.05rem; padding:1.1rem 2.5rem;">
-            <span data-i18n="hero-cta">Get a Free Quote</span>
-            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </a>
-          <div class="hero-phones">
-            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" style="color:var(--gold);flex-shrink:0;margin-top:2px;"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 11a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .18h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
-            <div class="hero-phones-list">
-              <a href="tel:8322928797" class="hero-phone-entry">
-                <span class="hero-phone-name">Narciso</span>
-                <span class="hero-phone-num">832-292-8797</span>
-              </a>
-              <a href="tel:8322106313" class="hero-phone-entry">
-                <span class="hero-phone-name">Carlos</span>
-                <span class="hero-phone-num">832-210-6313</span>
-              </a>
+          <div class="v2-trust-row">
+            <div class="v2-trust-item">
+              <span class="v2-trust-stars">★★★★★</span>
+              <span class="v2-trust-label"><strong>5.0</strong> · 23 reviews</span>
+            </div>
+            <div class="v2-trust-badge">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s-8-4.5-8-11.8A8 8 0 0 1 12 2a8 8 0 0 1 8 8.2c0 7.3-8 11.8-8 11.8z"/><circle cx="12" cy="10" r="3"/></svg>
+              <span data-i18n="hero-trust-licensed">Licensed &amp; Insured</span>
+            </div>
+            <div class="v2-trust-badge">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+              <span data-i18n="hero-trust-warranty">5-Year Warranty</span>
+            </div>
+          </div>
+
+          <div class="hero-actions">
+            <a href="#hero-quote" class="btn btn-gold" style="font-size:1.05rem; padding:1.1rem 2.5rem;">
+              <span data-i18n="hero-cta">Get a Free Quote</span>
+              <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+            <div class="hero-phones">
+              <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" style="color:var(--gold);flex-shrink:0;margin-top:2px;"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 11a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .18h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+              <div class="hero-phones-list">
+                <a href="tel:8322928797" class="hero-phone-entry">
+                  <span class="hero-phone-name">Narciso</span>
+                  <span class="hero-phone-num">832-292-8797</span>
+                </a>
+                <a href="tel:8322106313" class="hero-phone-entry">
+                  <span class="hero-phone-name">Carlos</span>
+                  <span class="hero-phone-num">832-210-6313</span>
+                </a>
+              </div>
             </div>
           </div>
         </div>
 
-        <div class="hero-stats">
-          <div class="stat-item"><span class="stat-num">100%</span><span class="stat-label">Satisfaction Rate</span></div>
-          <span class="stat-sep">✦</span>
-          <div class="stat-item"><span class="stat-num">5★</span><span class="stat-label">Client Reviews</span></div>
-          <span class="stat-sep">✦</span>
-          <div class="stat-item"><span class="stat-num">Premium</span><span class="stat-label">Materials Only</span></div>
-          <span class="stat-sep">✦</span>
-          <div class="stat-item"><span class="stat-num">Free</span><span class="stat-label">Estimates</span></div>
+        <div class="v2-quote-card" id="hero-quote">
+          <div class="v2-quote-header">
+            <div class="v2-quote-label" data-i18n="quote-label">Free · No Obligation</div>
+            <div class="v2-quote-title" data-i18n="quote-title">Get Your Quote in 24 Hours</div>
+            <div class="v2-quote-sub" data-i18n="quote-sub">Avg. reply time: under 2 hours</div>
+          </div>
+          <form class="v2-form-grid" id="heroQuoteForm" novalidate>
+            <div class="v2-form-row-2">
+              <input type="text" name="fname" placeholder="First name" required />
+              <input type="text" name="lname" placeholder="Last name" />
+            </div>
+            <input type="tel" name="phone" placeholder="Phone number" required />
+            <select name="service" required>
+              <option value="">Service type</option>
+              <option>Epoxy Garage Floor</option>
+              <option>Metallic Epoxy</option>
+              <option>Commercial Flooring</option>
+              <option>Custom Design</option>
+            </select>
+            <input type="text" name="sqft" placeholder="Approx. square footage (optional)" />
+            <button type="submit" class="v2-quote-submit" data-i18n="quote-submit">Get My Free Quote →</button>
+          </form>
+          <div class="v2-quote-success" id="heroQuoteSuccess">
+            <div class="v2-quote-success-icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+            </div>
+            <div style="font-family:'Playfair Display',serif; font-size:1.3rem; color:var(--white); margin-bottom:0.5rem;">Thanks! We'll be in touch.</div>
+            <div style="font-size:0.88rem; color:var(--gray);">A team member will reach out within 24 hours.</div>
+          </div>
+          <div class="v2-quote-footer">
+            🔒 Your info stays private. <strong>Never spam.</strong>
+          </div>
         </div>
       </div>
     </div>
   </section>
+
+  <script>
+    (function() {
+      const form = document.getElementById('heroQuoteForm');
+      const success = document.getElementById('heroQuoteSuccess');
+      if (!form) return;
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        const fname = form.fname.value.trim();
+        const phone = form.phone.value.trim();
+        const service = form.service.value;
+        if (!fname || !phone || !service) {
+          [form.fname, form.phone, form.service].forEach(field => {
+            if (!field.value.trim()) {
+              field.style.borderColor = '#e03030';
+              setTimeout(() => { field.style.borderColor = ''; }, 1500);
+            }
+          });
+          return;
+        }
+        const btn = form.querySelector('.v2-quote-submit');
+        btn.disabled = true;
+        btn.textContent = 'Sending…';
+        // TODO: hook up to Formspree
+        setTimeout(() => {
+          form.style.display = 'none';
+          success.classList.add('show');
+        }, 900);
+      });
+    })();
+  </script>
 
   <!-- ========== ABOUT ========== -->
   <section id="about">
@@ -2005,78 +2234,54 @@
         </p>
       </div>
 
-      <div class="services-grid">
-        <!-- Garage Floors -->
-        <div class="service-card fade-in">
-          <div class="service-icon">
-            <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13" rx="1"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+      <div class="v2-services-grid">
+        <a href="#hero-quote" class="v2-service-card fade-in">
+          <img src="after1.jpeg" alt="Epoxy garage floor" loading="lazy" />
+          <div class="v2-service-arrow">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M17 7H8M17 7V16"/></svg>
           </div>
-          <h3 class="service-name" data-i18n="svc1-name">Epoxy Garage Floors</h3>
-          <p class="service-desc">
-            Turn your garage into the cleanest room in the house. Durable, chemical-resistant,
-            and stunning — our garage coatings handle everything from oil spills to daily traffic.
-          </p>
-          <ul class="service-features">
-            <li>UV-resistant coating</li>
-            <li>Anti-slip texture options</li>
-            <li>Chip &amp; flake finishes</li>
-            <li>Multi-coat systems</li>
-          </ul>
-        </div>
+          <div class="v2-service-content">
+            <span class="v2-service-tag" data-i18n="svc1-tag">Most Popular</span>
+            <h3 class="v2-service-title" data-i18n="svc1-name">Garage Floors</h3>
+            <p class="v2-service-desc" data-i18n="svc1-desc">Chip &amp; flake finishes · UV-resistant · Built to last decades</p>
+          </div>
+        </a>
 
-        <!-- Metallic Epoxy -->
-        <div class="service-card fade-in fade-in-delay-1">
-          <div class="service-icon">
-            <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+        <a href="#hero-quote" class="v2-service-card fade-in fade-in-delay-1">
+          <img src="after2.jpeg" alt="Metallic epoxy floor" loading="lazy" />
+          <div class="v2-service-arrow">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M17 7H8M17 7V16"/></svg>
           </div>
-          <h3 class="service-name" data-i18n="svc2-name">Metallic Epoxy</h3>
-          <p class="service-desc">
-            A breathtaking 3D effect that makes every floor truly one-of-a-kind. Swirling metallic
-            pigments create depth and movement that looks different from every angle.
-          </p>
-          <ul class="service-features">
-            <li>Unique 3D visual effect</li>
-            <li>Dozens of color options</li>
-            <li>High-gloss topcoat</li>
-            <li>Seamless finish</li>
-          </ul>
-        </div>
+          <div class="v2-service-content">
+            <span class="v2-service-tag" data-i18n="svc2-tag">Premium</span>
+            <h3 class="v2-service-title" data-i18n="svc2-name">Metallic Epoxy</h3>
+            <p class="v2-service-desc" data-i18n="svc2-desc">3D visual effects · High-gloss finish · Dozens of colors</p>
+          </div>
+        </a>
 
-        <!-- Commercial Flooring -->
-        <div class="service-card fade-in fade-in-delay-2">
-          <div class="service-icon">
-            <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        <a href="#hero-quote" class="v2-service-card fade-in fade-in-delay-2">
+          <img src="after3.jpeg" alt="Commercial epoxy flooring" loading="lazy" />
+          <div class="v2-service-arrow">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M17 7H8M17 7V16"/></svg>
           </div>
-          <h3 class="service-name" data-i18n="svc3-name">Commercial Flooring</h3>
-          <p class="service-desc">
-            Heavy-duty epoxy systems built for warehouses, showrooms, restaurants, and retail.
-            Built to withstand heavy foot traffic, machinery, and the demands of daily business.
-          </p>
-          <ul class="service-features">
-            <li>Industrial-grade formulas</li>
-            <li>Quick-cure options</li>
-            <li>Safety markings available</li>
-            <li>Chemical &amp; stain resistant</li>
-          </ul>
-        </div>
+          <div class="v2-service-content">
+            <span class="v2-service-tag" data-i18n="svc3-tag">Business</span>
+            <h3 class="v2-service-title" data-i18n="svc3-name">Commercial</h3>
+            <p class="v2-service-desc" data-i18n="svc3-desc">Industrial-grade · Quick-cure options · Warehouses &amp; showrooms</p>
+          </div>
+        </a>
 
-        <!-- Custom Designs -->
-        <div class="service-card fade-in fade-in-delay-3">
-          <div class="service-icon">
-            <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="13.5" cy="6.5" r=".5" fill="currentColor"/><circle cx="17.5" cy="10.5" r=".5" fill="currentColor"/><circle cx="8.5" cy="7.5" r=".5" fill="currentColor"/><circle cx="6.5" cy="12.5" r=".5" fill="currentColor"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 011.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"/></svg>
+        <a href="#hero-quote" class="v2-service-card fade-in fade-in-delay-3">
+          <img src="after4.jpeg" alt="Custom epoxy design" loading="lazy" />
+          <div class="v2-service-arrow">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M17 7H8M17 7V16"/></svg>
           </div>
-          <h3 class="service-name" data-i18n="svc4-name">Custom Designs</h3>
-          <p class="service-desc">
-            Your vision, executed flawlessly. Logos, patterns, color-blocked zones, terrazzo-style
-            looks — we bring custom design concepts to life with precision and artistry.
-          </p>
-          <ul class="service-features">
-            <li>Logo embedding</li>
-            <li>Custom color matching</li>
-            <li>Multi-zone designs</li>
-            <li>Residential &amp; commercial</li>
-          </ul>
-        </div>
+          <div class="v2-service-content">
+            <span class="v2-service-tag" data-i18n="svc4-tag">Bespoke</span>
+            <h3 class="v2-service-title" data-i18n="svc4-name">Custom Designs</h3>
+            <p class="v2-service-desc" data-i18n="svc4-desc">Logos &amp; color matching · Multi-zone layouts · One-of-a-kind</p>
+          </div>
+        </a>
       </div>
     </div>
   </section>
@@ -3455,5 +3660,14 @@
 <a href="https://wa.me/18322928797?text=Hi%2C%20I%27m%20interested%20in%20a%20free%20quote!" target="_blank" rel="noopener" aria-label="Chat on WhatsApp" style="position:fixed;bottom:28px;right:28px;width:60px;height:60px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(0,0,0,0.4);z-index:9999;transition:transform 0.2s;" onmouseenter="this.style.transform='scale(1.1)'" onmouseleave="this.style.transform='scale(1)'">
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="32" height="32"><path fill="#fff" d="M4.9 43.3l2.7-9.9C5.9 30.7 5 27.4 5 24 5 13.5 13.5 5 24 5s19 8.5 19 19-8.5 19-19 19c-3.3 0-6.4-.9-9.1-2.4L4.9 43.3z"/><path fill="#25D366" d="M24 7c-9.4 0-17 7.6-17 17 0 3.1.8 6 2.3 8.5l.4.7-1.8 6.6 6.8-1.8.7.4C17.8 39.8 20.8 41 24 41c9.4 0 17-7.6 17-17S33.4 7 24 7z"/><path fill="#fff" d="M19.3 16c-.3-.7-.6-.7-.9-.7h-.8c-.3 0-.7.1-1 .5-.4.4-1.4 1.4-1.4 3.3s1.4 3.8 1.6 4.1c.2.3 2.8 4.4 6.8 6 3.4 1.3 4 1.1 4.7 1s2.3-.9 2.6-1.8c.3-.9.3-1.6.2-1.8-.1-.2-.4-.3-.8-.5s-2.4-1.2-2.8-1.3c-.4-.1-.6-.2-.9.2-.3.4-1 1.3-1.3 1.6-.2.3-.5.3-.9.1-.4-.2-1.8-.7-3.4-2.1-1.3-1.1-2.1-2.5-2.4-2.9-.2-.4 0-.6.2-.8.2-.2.4-.5.6-.7.2-.2.3-.4.4-.6.1-.3 0-.5-.1-.7-.1-.2-.9-2.1-1.2-2.9z"/></svg>
 </a>
+  <!-- ========== STICKY MOBILE CTA BAR (v2) ========== -->
+  <div class="v2-mobile-cta">
+    <a href="tel:8322928797" class="v2-mobile-cta-call">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      <span data-i18n="mobile-cta-call">Call Now</span>
+    </a>
+    <a href="#hero-quote" class="v2-mobile-cta-quote" data-i18n="mobile-cta-quote">Free Quote</a>
+  </div>
+
 </body>
 </html>
